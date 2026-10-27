@@ -10,6 +10,7 @@ dependencies = [
     "pycocotools==2.0.10",
     "pillow==12.0.0",
     "numpy==2.5.4",
+    "streamlit==1.66.1",
 ]
 
 [dependency-groups]

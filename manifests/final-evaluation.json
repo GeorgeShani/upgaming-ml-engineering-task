@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "selection_sha256": "034928b6734bce4965c29f5f0be3d3a440c3a1d06483f45d46790c6c60460355",
+  "split_manifest_sha256": "9b0e08699d70edbf5614e34f64474206beab774aeef3305e575fc01a0e51c325",
+  "dependency_lock_sha256": "fd58b91558210bb999126d923ce97a0c1b4af8b6442a8a0fdaf61acdbfb37b7c",
+  "source_sha256": {
+    "app.py": "3235ef9783e5217e532f26fe02432a1f4671de50dadb775cb846122a770549eb",
+    "pedestrian/annotations.py": "ef337db4b86bde7503536fbe6edaaa61156f0a5d555e7c2ebebfe051bd06bce4",
+    "pedestrian/app_support.py": "2d1e365a866c3e1ada3e32f517a39da57672511c7d04cc74ece4c8d83b5f67a6",
+    "pedestrian/data.py": "a2aa1437781e003be8e79cc0595f14c359b4f7bee37666a4ade3c5eb9dfaa217",
+    "pedestrian/evaluate.py": "3f4a7dfeb0a97e5436c2b71f2d0a782915e19d09ca61aeef4a92404a45548d4b",
+    "pedestrian/final_evaluate.py": "712a7dc1de62da22f32f3e59c53a7f3ae3ec05d245edc51469427f635be8c24b",
+    "pedestrian/inference.py": "fdd5bcd1c9a74f1ead7ba8efef706f12799352be7c074f47c7ef99f59a78455c",
+    "pedestrian/model.py": "60663ee849ee935a82ed4c3a4c3bfe11a397842a94625d3753153d1f6bf5d8e0",
+    "pedestrian/train.py": "9100dbb0d7f58c2c3215b101d54eb513bcea5d176296c62f530fe0a752a3256f"
+  },
+  "test_dataset_sha256": "08d3e71e46afee0c842130d9e96f9a1bd8914b23a311020afb76c18a0e016a39",
+  "test_image_count": 34,
+  "model": {
+    "experiment": "B",
+    "checkpoint_sha256": "4c2f1e05ca76cb06294e4f37e2b9bc6ae504bcb02da965b411603d4b9ea44c90",
+    "selected_epoch": 3,
+    "min_size": 320,
+    "max_size": 640
+  },
+  "evaluation": {
+    "split": "test",
+    "score_floor": 0.001,
+    "detections_per_image": 300,
+    "confidence_threshold_for_counts": 0.5,
+    "iou_threshold_for_counts": 0.5,
+    "map_iou_range": "0.50:0.95",
+    "threads": 4
+  }
+}

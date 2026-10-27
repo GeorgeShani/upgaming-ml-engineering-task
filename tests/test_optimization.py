@@ -1,7 +1,12 @@
 import pytest
 import torch
 
-from pedestrian.optimize import choose_resolution, select_checkpoint, summarize_latencies
+from pedestrian.optimize import (
+    choose_resolution,
+    make_selection,
+    select_checkpoint,
+    summarize_latencies,
+)
 
 
 def test_choose_reduced_only_if_faster_and_within_accuracy_limit():
@@ -19,6 +24,24 @@ def test_latency_summary_uses_median_and_nearest_rank_p95():
 def test_invalid_metrics_cannot_select_an_optimization():
     with pytest.raises(ValueError):
         choose_resolution(100, float("nan"), 0.7, 0.69)
+
+
+def test_selection_record_uses_winning_checkpoint_and_resolution():
+    report = {
+        "model_selection": {
+            "winner": "B",
+            "comparison": {
+                "B": {"checkpoint": "runs/b/best.pt", "checkpoint_sha256": "abc", "best_epoch": 3}
+            },
+        },
+        "decision": {"selected": "standard"},
+        "results": {"standard": {"min_size": 320, "max_size": 640, "metrics": {"map": 0.67}}},
+    }
+    result = make_selection(report, "runs/report.json")
+    assert result["checkpoint"] == "runs/b/best.pt"
+    assert result["checkpoint_sha256"] == "abc"
+    assert (result["min_size"], result["max_size"]) == (320, 640)
+    assert result["validation_map"] == 0.67
 
 
 def test_select_checkpoint_uses_validation_map_and_rejects_changed_training_settings(tmp_path):

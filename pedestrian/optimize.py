@@ -42,6 +42,22 @@ def choose_resolution(standard_ms, reduced_ms, standard_map, reduced_map, max_dr
     }
 
 
+def make_selection(report, evidence_path):
+    winner = report["model_selection"]["winner"]
+    checkpoint = report["model_selection"]["comparison"][winner]
+    resolution = report["results"][report["decision"]["selected"]]
+    return {
+        "experiment": winner,
+        "checkpoint": checkpoint["checkpoint"],
+        "checkpoint_sha256": checkpoint["checkpoint_sha256"],
+        "selected_epoch": checkpoint["best_epoch"],
+        "min_size": resolution["min_size"],
+        "max_size": resolution["max_size"],
+        "validation_map": resolution["metrics"]["map"],
+        "evidence": str(evidence_path),
+    }
+
+
 def select_checkpoint(run_a: Path, run_b: Path):
     """Select by validation mAP after checking the controlled-run configuration."""
     histories = {}
@@ -110,6 +126,7 @@ def main():
     import torch
     import torchvision
 
+    from pedestrian.app_support import matches_manifest_hash
     from pedestrian.data import PennFudanDataset
     from pedestrian.evaluate import configure_evaluation, evaluate_model
     from pedestrian.train import load_checkpoint
@@ -120,15 +137,20 @@ def main():
     parser.add_argument("--run-a", type=Path, required=True)
     parser.add_argument("--run-b", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--selection-output", type=Path, help="Optional new selection JSON path")
     parser.add_argument("--threads", type=int, default=4)
     args = parser.parse_args()
     if args.threads < 1:
         parser.error("--threads must be positive")
     if args.output.exists():
         parser.error("Output already exists; choose a new output file")
+    if args.selection_output and args.selection_output.exists():
+        parser.error("Selection output already exists; choose a new output file")
+    if args.selection_output and args.selection_output.resolve() == args.output.resolve():
+        parser.error("Selection output and report output must be different files")
     torch.set_num_threads(args.threads)
     winner, comparison, manifest_hash = select_checkpoint(args.run_a, args.run_b)
-    if hashlib.sha256(args.manifest.read_bytes()).hexdigest() != manifest_hash:
+    if not matches_manifest_hash(args.manifest, manifest_hash):
         raise ValueError("Manifest differs from the one used for training")
     model, metadata = load_checkpoint(comparison[winner]["checkpoint"])
     if metadata["epoch"] != comparison[winner]["best_epoch"]:
@@ -204,6 +226,12 @@ def main():
     }
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(report, indent=2) + "\n", encoding="utf-8")
+    if args.selection_output:
+        args.selection_output.parent.mkdir(parents=True, exist_ok=True)
+        args.selection_output.write_text(
+            json.dumps(make_selection(report, args.output.as_posix()), indent=2) + "\n",
+            encoding="utf-8",
+        )
     print(json.dumps({"winner": winner, "decision": decision}, indent=2))
 
 

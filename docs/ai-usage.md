@@ -63,3 +63,14 @@ experiment, checked A/B settings, selected the best trained checkpoint, and
 measured the two resize settings. AI recorded the actual samples, decision,
 model checksum, and limitations; the test split was not used. George's own
 explanations, verification, and independent code change remain pending.
+
+## Local demo and frozen test preparation
+
+AI implemented the local Streamlit interface, checksum-verified selection,
+fresh-retraining selection path, and frozen-evaluation checks. AI tested the
+browser with a public sample, confidence slider, grayscale/RGBA images, corrupt
+upload, and empty output; tested missing checkpoint and checksum errors in
+automated tests; and verified setup in a new local virtual environment. AI also
+inspected three qualitative images outside Penn-Fudan: a dog image produced a
+false person detection. The model was not changed in response. George's own
+demo, review, explanation, and independent code change remain pending.

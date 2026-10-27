@@ -531,3 +531,55 @@ checkpoint and resize are recorded in `manifests/selected-model.json`.
 
 George's observations and independent code change: **pending**. Next: build the
 local application, then freeze decisions and evaluate the held-out test split.
+
+## Steps 7–8: local demo and frozen evaluation
+
+### The demo
+
+`app.py` lets a user upload a JPEG or PNG, select a confidence threshold, and
+see boxes, scores, and a count. It can also use the local TorchVision example.
+The application and CLI share `pedestrian.inference.predict`, so preprocessing
+and person filtering are not independently reimplemented for the UI.
+
+`pedestrian/app_support.py` checks the selected checkpoint's SHA256 and its
+experiment/epoch metadata before loading it, applies the selected 320/640
+resize, and puts the detector in evaluation mode. Streamlit's resource cache
+avoids loading the model on every widget interaction; changing the selection or
+the checkpoint file's size/modification time causes a reload. We chose a local
+Streamlit app to avoid a separate frontend/backend, at the cost of less control
+over UI behavior and less flexibility than a dedicated service.
+
+Image uploads are decoded with Pillow, oriented using EXIF, and converted to
+RGB; grayscale and RGBA inputs are supported. Invalid files get a readable
+message. The server is configured to listen on `127.0.0.1` with a 20 MB upload
+limit. The README documents launching it and recovering after retraining, where
+the new checkpoint may have a different checksum.
+
+AI browser checks: sample image produced one detection; changing the slider to
+1.0 produced zero; grayscale and RGBA blank images produced zero; a corrupt PNG
+showed the expected error; uploading a valid image afterwards recovered. An
+automated UI test covers slider and missing-checkpoint behavior. A fresh local
+virtual environment installed the lockfile and ran inference successfully.
+
+Qualitative checks used three TorchVision images outside Penn-Fudan, without
+labels or quantitative claims: `person1.jpg` produced one person detection;
+`astronaut.jpg` produced one person detection; and `dog1.jpg` produced one
+incorrect person detection at score **0.7585**. AI visually inspected these
+outputs. This highlights a real weakness on non-person images, which our
+pedestrian-only evaluation dataset does not cover. We did not alter the model
+or threshold in response. Source images and generated overlays stay local.
+
+### Freezing decisions
+
+Before evaluating the test split, `pedestrian.final_evaluate freeze` records the
+selected checkpoint and checksum, resolution, split manifest, evaluation
+thresholds, dependency lock, and relevant source-file hashes. It fingerprints
+the held-out files without running the model. Text hashes normalize LF/CRLF so
+equivalent Git checkouts do not falsely appear changed; checkpoint and image
+bytes remain exact hashes. A test confirms real changes are rejected.
+
+The frozen contract is committed before the test run. The evaluation command
+verifies it, uses only the selected B checkpoint and its fixed resize, and
+refuses to overwrite an existing result. It reports mAP over scores plus the
+separate 0.5 confidence/IoU counts. The held-out results and interpretation
+will be added after the actual run, without retuning against them.

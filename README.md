@@ -4,8 +4,7 @@ A CPU-first computer vision project implemented one milestone at a time.
 The full assignment includes data preparation, fine-tuning, evaluation, an
 optimization attempt, and a local Streamlit demonstration.
 
-**Current scope: validation experiments A/B and resolution optimization.** The
-final held-out test and Streamlit remain upcoming. See
+**Current scope: a local Streamlit demo and a frozen final evaluation.** See
 [the schedule](docs/implementation-plan.md) and the learning journal.
 
 ## Set up on Windows
@@ -118,7 +117,7 @@ images. After reproducing A, run B and the comparison into new output paths:
 
 ```powershell
 uv run --locked python -m pedestrian.train --dataset-root data/PennFudanPed --experiment B --output runs/experiment-b-repro
-uv run --locked python -m pedestrian.optimize --dataset-root data/PennFudanPed --run-a runs/experiment-a-repro --run-b runs/experiment-b-repro --output runs/optimization-repro/validation.json
+uv run --locked python -m pedestrian.optimize --dataset-root data/PennFudanPed --run-a runs/experiment-a-repro --run-b runs/experiment-b-repro --output runs/optimization-repro/validation.json --selection-output runs/optimization-repro/selected-model.json
 ```
 
 The recorded run selected experiment B at 320/640; see
@@ -129,8 +128,51 @@ uv run --locked python -m pedestrian.predict --image data/person1.jpg --checkpoi
 ```
 
 The original checkpoint is local and ignored by Git. A retrained checkpoint may
-have a different checksum; re-run model selection after retraining rather than
-assuming the recorded checkpoint identity or benchmark will be identical.
+have a different checksum. After retraining, the command above writes a new
+selection file. Point the application at it before launching:
+
+```powershell
+$env:PEDESTRIAN_SELECTION_FILE = (Resolve-Path 'runs/optimization-repro/selected-model.json').Path
+uv run --locked streamlit run app.py
+```
+
+After stopping Streamlit, remove that override with
+`Remove-Item Env:PEDESTRIAN_SELECTION_FILE`. The recorded held-out test results
+apply to the original frozen checkpoint, not automatically to a new retraining.
+
+## Local demo
+
+With the recorded checkpoint available locally, run:
+
+```powershell
+uv sync --locked
+uv run --locked streamlit run app.py
+```
+
+Open `http://127.0.0.1:8501`, upload a JPEG/PNG, and adjust the confidence
+slider. The app verifies the selected checkpoint and uses the recorded 320/640
+resize. The example checkbox uses `data/person1.jpg` when that file exists.
+The server listens on loopback, and the default upload limit is 20 MB.
+
+The model can make high-confidence mistakes: in a qualitative outside-dataset
+check it labeled a dog as a person. Counts and scores should be inspected, not
+treated as ground truth.
+
+## Frozen held-out evaluation
+
+`manifests/final-evaluation.json` records the choices frozen before the test run,
+including text-normalized source hashes, checkpoint checksum, and held-out file
+fingerprint. To reproduce the same evaluation you need the original selected
+checkpoint and the unchanged dataset:
+
+```powershell
+uv run --locked python -m pedestrian.final_evaluate run --dataset-root data/PennFudanPed --freeze manifests/final-evaluation.json --output runs/final-test-recheck/results.json
+```
+
+Use a new output path for a recheck; the command does not overwrite existing
+results. Once the held-out set is observed, do not use it to choose new models
+or thresholds. A genuinely independent final assessment of further
+changes needs fresh data.
 
 `pedestrian/model.py` loads the detector; `inference.py` prepares images and
 filters predictions; `predict.py` handles CLI input and saved outputs.
