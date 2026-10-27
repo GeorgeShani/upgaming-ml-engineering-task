@@ -1,0 +1,35 @@
+[project]
+name = "pedestrian-detection"
+version = "0.1.0"
+description = "A small, explainable pedestrian detection learning project."
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "torch==2.9.1+cpu",
+    "torchvision==0.24.1+cpu",
+    "torchmetrics==1.8.2",
+    "pycocotools==2.0.10",
+    "pillow==12.0.0",
+]
+
+[dependency-groups]
+dev = ["pytest==8.4.2", "ruff==0.14.3"]
+
+[tool.uv.sources]
+torch = { index = "pytorch-cpu" }
+torchvision = { index = "pytorch-cpu" }
+
+[[tool.uv.index]]
+name = "pytorch-cpu"
+url = "https://download.pytorch.org/whl/cpu"
+explicit = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
