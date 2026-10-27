@@ -43,3 +43,15 @@ committed manifests. AI verified the reported counts and byte-for-byte repeated
 output. The similarity screening and manual review are incomplete safeguards,
 not proof that all related images have been identified. George's independent
 audit walkthrough and verification remain pending.
+
+## Validation baseline, experiment A, and review
+
+AI drafted the dataset loader, evaluation and matching code, training loop,
+checkpoint handling, error-review tool, tests, and explanations. AI ran the
+baseline and three training epochs, inspected validation examples, and verified
+the saved checkpoint by re-evaluation. Preprocessing and TorchVision version
+metadata were added to the saved checkpoints after training; SHA256 of the
+model state was checked before and after to verify the weights did not change.
+Results and times are measured, not fabricated. George's independent review,
+explanation, and code modification remain pending. The held-out test split was
+not evaluated for these steps.

@@ -1,0 +1,158 @@
+{
+  "experiment": "A",
+  "split": "validation",
+  "training_image_count": 102,
+  "validation_image_count": 34,
+  "config": {
+    "experiment": "A",
+    "architecture": "fasterrcnn_mobilenet_v3_large_320_fpn",
+    "initial_weights": "COCO_V1",
+    "classes": {
+      "background": 0,
+      "person": 1
+    },
+    "seed": 42,
+    "epochs": 3,
+    "batch_size": 2,
+    "learning_rate": 0.005,
+    "momentum": 0.9,
+    "weight_decay": 0.0005,
+    "threads": 4,
+    "augmentation": "none",
+    "frozen": "entire backbone including FPN",
+    "manifest_sha256": "7f4deb9c036fe281d5826b58217fb39086a3f7e9220a4ea44669d004b9dd6ce7",
+    "torch": "2.9.1+cpu",
+    "validation_score_floor": 0.001,
+    "torchvision": "0.24.1+cpu",
+    "preprocessing": {
+      "image_mode": "RGB",
+      "input_dtype": "float32",
+      "input_range": [
+        0,
+        1
+      ],
+      "min_size": [
+        320
+      ],
+      "max_size": 640,
+      "image_mean": [
+        0.485,
+        0.456,
+        0.406
+      ],
+      "image_std": [
+        0.229,
+        0.224,
+        0.225
+      ]
+    }
+  },
+  "tiny_check": {
+    "image_ids": [
+      "FudanPed00001",
+      "FudanPed00002"
+    ],
+    "losses": [
+      1.2322739362716675,
+      0.8824917674064636,
+      0.5957554578781128,
+      0.5022053122520447,
+      0.49059566855430603
+    ],
+    "elapsed_seconds": 3.2600510000484064,
+    "frozen_backbone_unchanged": true,
+    "head_updated": true
+  },
+  "epochs": [
+    {
+      "epoch": 1,
+      "mean_losses": {
+        "loss_classifier": 0.14998758650001356,
+        "loss_box_reg": 0.2388431185892984,
+        "loss_objectness": 0.035453617919747736,
+        "loss_rpn_box_reg": 0.00442666268231822
+      },
+      "validation": {
+        "metrics": {
+          "map": 0.6287521123886108,
+          "map_50": 0.9222880005836487,
+          "map_75": 0.813412070274353,
+          "mar_100": 0.6818181872367859
+        },
+        "counts": {
+          "tp": 70,
+          "fp": 11,
+          "fn": 7
+        },
+        "precision_at_threshold": 0.8641975308641975,
+        "recall_at_threshold": 0.9090909090909091,
+        "confidence_threshold_for_counts": 0.5,
+        "matching_iou_for_counts": 0.5,
+        "elapsed_seconds": 6.485061199986376
+      },
+      "elapsed_seconds": 47.97633279999718
+    },
+    {
+      "epoch": 2,
+      "mean_losses": {
+        "loss_classifier": 0.10232294818349913,
+        "loss_box_reg": 0.24088120957215628,
+        "loss_objectness": 0.016946231149703117,
+        "loss_rpn_box_reg": 0.00425246060373919
+      },
+      "validation": {
+        "metrics": {
+          "map": 0.6264796853065491,
+          "map_50": 0.9217752814292908,
+          "map_75": 0.8139358758926392,
+          "mar_100": 0.6727272868156433
+        },
+        "counts": {
+          "tp": 69,
+          "fp": 6,
+          "fn": 8
+        },
+        "precision_at_threshold": 0.92,
+        "recall_at_threshold": 0.8961038961038961,
+        "confidence_threshold_for_counts": 0.5,
+        "matching_iou_for_counts": 0.5,
+        "elapsed_seconds": 9.287842000019737
+      },
+      "elapsed_seconds": 38.55823879991658
+    },
+    {
+      "epoch": 3,
+      "mean_losses": {
+        "loss_classifier": 0.10215316004320688,
+        "loss_box_reg": 0.29701138901359897,
+        "loss_objectness": 0.011321872504720209,
+        "loss_rpn_box_reg": 0.0037709448826681894
+      },
+      "validation": {
+        "metrics": {
+          "map": 0.6548821330070496,
+          "map_50": 0.9164328575134277,
+          "map_75": 0.7914464473724365,
+          "mar_100": 0.7090908885002136
+        },
+        "counts": {
+          "tp": 70,
+          "fp": 9,
+          "fn": 7
+        },
+        "precision_at_threshold": 0.8860759493670886,
+        "recall_at_threshold": 0.9090909090909091,
+        "confidence_threshold_for_counts": 0.5,
+        "matching_iou_for_counts": 0.5,
+        "elapsed_seconds": 8.225359100033529
+      },
+      "elapsed_seconds": 47.47721009992529
+    }
+  ],
+  "best_epoch": 3,
+  "checkpoint_sha256": "683225a9fca17f4aac30b00c79a0d66a1042be975e78c188472f1e9c13076fa2",
+  "checkpoint_bytes": 76005665,
+  "reload_matches_saved_validation": true,
+  "checkpoint_state_sha256_unchanged_when_metadata_added": "0c43400f8e3cfcfc1f658be583fb925caf06bd1f94f52ab7c37abafb7e1c719c",
+  "training_elapsed_seconds": 135.13292289990932
+}

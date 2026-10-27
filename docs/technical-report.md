@@ -2,9 +2,9 @@
 
 ## Current status
 
-Milestone 1: environment and pretrained inference. Milestone 2 has begun with
-inspection of one Penn-Fudan image and its instance mask. No fine-tuning,
-Penn-Fudan validation/test evaluation, or optimization measurements have been performed.
+The dataset audit and split are complete. The pretrained E0 validation baseline
+and fine-tuning experiment A have been run. Experiment B, optimization, and the
+held-out test remain pending.
 Single-image predictions are smoke checks, not evidence of model accuracy.
 
 ## Problem and intended application
@@ -49,12 +49,43 @@ The external TorchVision sample produced one person detection with score
 See [saved evidence](evidence/milestone-01/README.md). This is a smoke prediction;
 it is neither the E0 validation experiment nor an accuracy measurement.
 
-E0, A, B, optimization, and held-out test results remain pending.
+### Validation comparison
+
+Both runs evaluated the same 34 validation images with TorchMetrics/pycocotools,
+person-only predictions, model score floor 0.001, and up to 300 detections per
+image before COCO's metric limits. Counts use confidence 0.5 and IoU 0.5.
+
+| Run | mAP 0.50:0.95 | AP50 | TP | FP | FN | Precision | Recall |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| E0: pretrained | 0.6912 | 0.9338 | 73 | 31 | 4 | 0.7019 | 0.9481 |
+| A: best epoch 3 | 0.6549 | 0.9164 | 70 | 9 | 7 | 0.8861 | 0.9091 |
+
+At this reporting threshold A produced fewer unmatched predictions but missed
+more annotations; its mAP was lower. These are validation measurements on a
+small dataset, not test results or proof of real-world superiority. Some E0
+unmatched predictions in crowded `FudanPed00047` visibly correspond to people
+without mask annotations, so apparent false positives can include annotation
+gaps. In `FudanPed00063`, A missed several small distant annotated people at
+the reporting threshold. Similar images may still cross splits despite grouping.
+E0 also ranks several object classes before the 300-detection cap, whereas A
+predicts only person; that post-processing difference may affect comparison.
+
+Experiment A used all 102 training images, three epochs, batch size 2, a frozen
+backbone, SGD, and no augmentation. Tiny-set loss fell from 1.2323 to 0.4906;
+this checks that a small batch can be learned, not generalization. The best
+checkpoint reproduced its saved validation metrics after offline reload. Full
+numeric evidence is in `docs/evidence/experiments/`; dataset visualizations and
+checkpoint files stay local. The exact retraining command is in the README.
+
+Experiment B, optimization, and held-out test results remain pending.
 
 ## Known limitations and next improvements
 
-There is no project-trained model yet. No accuracy claim is supported.
-Next: run the validation baseline before training. See the journal for evidence
+The project-trained checkpoint exists locally but is not yet published; it does
+not include optimizer state for exact training resumption. The validation set is
+small, annotations are incomplete in some scenes, and the
+dataset lacks person-free images. Next: experiment B, then optimization and a
+frozen-decision test. See the journal for evidence
 and the implementation plan for the acceptance criteria.
 
 ## Primary references

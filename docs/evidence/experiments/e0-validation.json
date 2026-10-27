@@ -1,0 +1,23 @@
+{
+  "experiment": "E0",
+  "split": "validation",
+  "image_count": 34,
+  "score_floor": 0.001,
+  "threads": 4,
+  "metrics": {
+    "map": 0.6912030577659607,
+    "map_50": 0.9337634444236755,
+    "map_75": 0.7884235382080078,
+    "mar_100": 0.7415584325790405
+  },
+  "counts": {
+    "tp": 73,
+    "fp": 31,
+    "fn": 4
+  },
+  "precision_at_threshold": 0.7019230769230769,
+  "recall_at_threshold": 0.948051948051948,
+  "confidence_threshold_for_counts": 0.5,
+  "matching_iou_for_counts": 0.5,
+  "elapsed_seconds": 10.809921100037172
+}

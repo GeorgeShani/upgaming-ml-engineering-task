@@ -4,8 +4,8 @@ A CPU-first computer vision project implemented one milestone at a time.
 The full assignment includes data preparation, fine-tuning, evaluation, an
 optimization attempt, and a local Streamlit demonstration.
 
-**Current scope: pretrained inference and the first data-inspection slice.**
-No project-specific training or dataset evaluation has been performed. See
+**Current scope: validation baseline and fine-tuning experiment A.** Experiment
+B, optimization, the final held-out test, and Streamlit remain upcoming. See
 [the schedule](docs/implementation-plan.md) and the learning journal.
 
 ## Set up on Windows
@@ -89,6 +89,28 @@ committed `manifests/splits.json` records the seed and image IDs. Related-image
 groups come from hash screening and a limited visual review. These checks do
 not prove all repeated people or scenes were found.
 
+## Validation baseline and experiment A
+
+The evaluator uses only the validation IDs. It computes COCO-style mAP across
+scores and separately reports detection counts at confidence 0.5 and IoU 0.5.
+The held-out test split is not used for model selection.
+
+```powershell
+uv run --locked python -m pedestrian.evaluate --dataset-root data/PennFudanPed --output runs/e0-recheck/validation.json
+uv run --locked python -m pedestrian.train --dataset-root data/PennFudanPed --output runs/experiment-a-repro
+uv run --locked python -m pedestrian.evaluate --dataset-root data/PennFudanPed --checkpoint runs/experiment-a-repro/best.pt --output runs/experiment-a-repro/reloaded-validation.json
+uv run --locked python -m pedestrian.review_errors --dataset-root data/PennFudanPed --evaluation runs/experiment-a-repro/reloaded-validation.json --output runs/experiment-a-repro/review
+uv run --locked python -m pedestrian.predict --image data/person1.jpg --checkpoint runs/experiment-a-repro/best.pt --output runs/experiment-a-repro/sample
+```
+
+Training starts with a five-step learning check, then restarts from pretrained
+weights for three epochs. Choose a **new** output directory for each training
+run; existing experiment output is protected against accidental overwrite.
+The best checkpoint is selected by validation mAP and saved locally with its
+configuration. Loading it does not download pretrained weights. Checkpoints,
+dataset imagery, and side-by-side reviews are gitignored; run instructions
+recreate them. Numerical summaries are committed under `docs/evidence/experiments/`.
+
 `pedestrian/model.py` loads the detector; `inference.py` prepares images and
 filters predictions; `predict.py` handles CLI input and saved outputs.
 `check_environment.py` checks native detection and evaluation dependencies.
@@ -96,7 +118,8 @@ filters predictions; `predict.py` handles CLI input and saved outputs.
 
 ## Limits and troubleshooting
 
-This is an existing COCO-trained detector, not yet our trained solution.
+The default prediction command uses the original COCO-trained detector. Pass
+`--checkpoint` to use the locally trained experiment A model.
 The confidence score is not a calibrated probability. One sample prediction
 does not establish accuracy, generalization, or production readiness.
 

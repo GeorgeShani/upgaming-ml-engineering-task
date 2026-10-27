@@ -88,3 +88,21 @@ def test_unreadable_cli_input_is_rejected_before_model_download(tmp_path, capsys
         main(["--image", str(image)])
     assert error.value.code == 2
     assert "Cannot read image" in capsys.readouterr().err
+
+
+def test_cli_records_when_trained_checkpoint_is_used(tmp_path, monkeypatch):
+    import json
+
+    import pedestrian.train as training
+    from pedestrian.predict import main
+
+    image = tmp_path / "image.png"
+    checkpoint = tmp_path / "checkpoint.pt"
+    output = tmp_path / "results"
+    Image.new("RGB", (12, 8)).save(image)
+    checkpoint.write_bytes(b"test checkpoint")
+    monkeypatch.setattr(training, "load_checkpoint", lambda path: (FixedDetector(), {}))
+    main(["--image", str(image), "--checkpoint", str(checkpoint), "--output", str(output)])
+    result = json.loads((output / "predictions.json").read_text(encoding="utf-8"))
+    assert result["weights"] == "trained_checkpoint"
+    assert len(result["checkpoint_sha256"]) == 64

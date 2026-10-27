@@ -288,3 +288,137 @@ commands and observations here; independent verification remains **pending**.
 
 Next: use the validation split to evaluate the pretrained E0 detector. The test
 split remains untouched for model selection and optimization decisions.
+
+## Steps 2–4: validation baseline, experiment A, and error review
+
+Date: 2026-10-27 (Asia/Tbilisi). AI implemented and ran these steps. George's
+independent walkthrough and code verification are pending. The held-out test
+split was not used. Experiment B and optimization remain upcoming.
+
+### Step 2: the pretrained baseline
+
+The baseline answers: how does the existing COCO-trained detector perform on
+our validation images before training on Penn-Fudan? `pedestrian/data.py` loads
+each listed image and converts its instance mask to boxes and person labels.
+`pedestrian/evaluate.py` runs the detector on all 34 validation images and keeps
+person predictions for evaluation. The dataset loader keeps images as separate
+tensors because their sizes differ.
+
+IoU (intersection over union) compares two boxes: intersection area divided by
+union area. Identical boxes have IoU 1; disjoint boxes have IoU 0. For the
+human-readable counts, a prediction with score at least 0.5 is matched to an
+unmatched ground-truth box at IoU at least 0.5. Detections are considered in
+descending score order. Each annotation can match at most one prediction.
+
+Our counts give precision = TP / (TP + FP) and recall = TP / (TP + FN).
+Unmatched predictions are called FP by this annotation-based calculation;
+unmatched annotations are FN. Precision and recall depend on the chosen score
+and IoU thresholds.
+
+Average precision instead summarizes the precision/recall curve across scores.
+AP50 uses IoU 0.5. COCO-style mAP 0.50:0.95 averages AP across ten IoU thresholds,
+from 0.50 to 0.95. The evaluator uses TorchMetrics/pycocotools rather than a
+home-grown AP implementation. It sets the detector score floor to 0.001 and
+keeps up to 300 detections per image before COCO's own limits; the 0.5 threshold
+is for the separate counts, not an extra cutoff for the mAP calculation.
+
+Validation results:
+
+| Model | mAP 0.50:0.95 | AP50 | TP | FP | FN | Precision | Recall |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| E0 pretrained | 0.6912 | 0.9338 | 73 | 31 | 4 | 0.7019 | 0.9481 |
+| A, best epoch 3 | 0.6549 | 0.9164 | 70 | 9 | 7 | 0.8861 | 0.9091 |
+
+These are validation measurements on 77 annotated people, not test results.
+The two models are compared under the same validation settings. Their confidence
+scores need not be calibrated identically, so the 0.5 operating-point comparison
+does not by itself establish which is better at every threshold. E0 ranks its
+many object classes together before the 300-detection cap; A predicts only
+person. That difference in post-processing can also affect the comparison.
+
+### Step 3: the training loop and experiment A
+
+Why fine-tune? The pretrained model has already learned useful visual patterns.
+We adapt it to the person annotations instead of learning every feature from
+scratch. We replace the final prediction head with outputs for background and
+person, freeze the entire MobileNet/FPN backbone, and train the region proposal
+and detection components. A bigger trainable model might adapt more, but costs
+more compute and can overfit a small dataset. Freezing is a deliberate trade-off.
+
+For one batch of two images:
+
+1. The dataset yields image tensors plus ground-truth boxes and labels.
+2. In training mode, `model(images, targets)` produces several losses: proposal
+   objectness and box losses, plus final classification and box losses.
+3. Their sum is a single number measuring how poorly the batch fits the training
+   objectives. `loss.backward()` computes gradients for trainable parameters.
+4. SGD uses those gradients, learning rate 0.005, momentum 0.9, and weight decay
+   0.0005 to update the trainable parameters. It does not update frozen backbone
+   parameters. `zero_grad` clears old gradients before the next backward pass.
+5. After an epoch, switch to evaluation mode and compute validation metrics.
+   Save the checkpoint with the highest validation mAP. The next epoch returns
+   the model to training mode.
+
+First, the five-step diagnostic repeated two training images. Its loss went
+`1.2323 → 0.8825 → 0.5958 → 0.5022 → 0.4906`. It verified finite head gradients,
+no backbone parameter gradients, a head update, and an unchanged sampled frozen
+backbone parameter. This is a learning check on the same tiny batch, not a
+generalization result. We then rebuilt the model from the original pretrained
+weights before the real run; the diagnostic updates were not included.
+
+Experiment A used the full 102-image training split, seed 42, batch size 2,
+three epochs, CPU with four threads, and no augmentation. Mean summed losses
+were approximately 0.4287, 0.3644, and 0.4143; stochastic batch sampling means
+loss need not fall every epoch. Validation mAP was 0.6288, 0.6265, and 0.6549,
+so epoch 3 was selected. The measured epoch loop took about 135 seconds on this
+machine, including validation; this is not a controlled performance benchmark.
+
+Experiment A's mAP was lower than E0's, although its 0.5-threshold precision
+was higher. Replacing the pretrained classifier, the small dataset, short run,
+and incomplete annotations are plausible factors, not proven causes. Longer
+training, unfreezing, or reusing parts of the original head are alternatives
+with their own compute and overfitting trade-offs. Do not claim fine-tuning
+improved overall mAP in this experiment.
+
+### Step 4: review and checkpoint verification
+
+`pedestrian/review_errors.py` renders ground-truth boxes and score-filtered
+predictions side by side in the local, gitignored `runs/` folder. In baseline
+`FudanPed00047`, several unmatched predictions visibly correspond to people
+without matching mask annotations. In experiment A `FudanPed00063`, several
+small distant annotated people are missed at the 0.5 score threshold. These are
+specific observations, not a comprehensive error study or proof of causation.
+
+The best checkpoint is `runs/experiment-a/best.pt` (76,005,665 bytes). Its SHA256
+is `683225a9fca17f4aac30b00c79a0d66a1042be975e78c188472f1e9c13076fa2`.
+It stores learned tensors, architecture/configuration, class mapping, input
+preprocessing, seed, training-image IDs, manifest checksum, and dependency
+versions. The file is local and gitignored; the README gives exact retraining
+commands. A downloadable handover artifact is still a later task. The
+checkpoint does not contain optimizer state, so it supports inference and
+retraining from the beginning, but not exact resumption of the interrupted run.
+
+Preprocessing and TorchVision metadata were added after the training run; the
+SHA256 of the model-state tensors was checked before and after and did not
+change. Loading the checkpoint constructs the architecture without downloading
+weights. Its re-evaluation reproduced the saved epoch-3 metrics and counts.
+An automated test also compares predictions before and after a checkpoint reload.
+The final suite passed 24 tests; Ruff lint and formatting checks passed.
+
+### George's verification (pending)
+
+- [ ] Explain why a validation baseline must be measured before fine-tuning.
+- [ ] For identical boxes IoU is 1. What is the IoU if a predicted 10×5 box lies
+  entirely inside a 10×10 ground-truth box?
+- [ ] Calculate A's precision from 70 TP and 9 FP, then explain why AP50 is a
+  different quantity from precision at a single confidence threshold.
+- [ ] Trace one batch through forward pass → loss → backward → optimizer step.
+- [ ] Run the README commands in new output directories, inspect a local error
+  image, and record your actual observations and an independent code change.
+
+Commands I ran: **pending**. My explanation: **pending**. My observations and
+questions: **pending**. AI-run tests and visual review do not fill these fields.
+
+Next: experiment B changes only the planned horizontal-flip augmentation;
+preserve the same split, model initialization, and training budget for a useful
+comparison. Optimization and the held-out test are separate later steps.
