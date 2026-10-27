@@ -201,3 +201,90 @@ questions: **pending**.
 
 Next: audit pairing and possible duplicates, then make fixed train/validation/
 test manifests before evaluating or training the model.
+
+## Milestone 2, second slice: audit and split
+
+Date: 2026-10-27 (Asia/Tbilisi). AI implementation and verification complete;
+George's own walkthrough and verification are pending.
+
+### What changed
+
+`pedestrian/dataset_audit.py` matches image IDs to mask IDs, loads every pair,
+checks dimensions and mask channels, records per-image instance IDs, screens
+image similarity, groups related images, and assigns groups to splits. The
+results are in `manifests/audit.json` and `manifests/splits.json`; the manually
+reviewed group list is in `manifests/reviewed_groups.json`.
+
+### How the audit works
+
+For example, `PNGImages/FudanPed00001.png` pairs with
+`PedMasks/FudanPed00001_mask.png`. The common key is `FudanPed00001`. The
+audit checks for missing images or masks, unexpected mask names, unreadable
+files, different dimensions, non-single-channel masks, and invalid negative IDs.
+It records which nonzero values occur; the number of values is the number of
+annotated instances, not the number of classes.
+
+The actual audit found 170 pairs, all with matching image/mask dimensions and
+single-channel masks: 74 Fudan images, 96 Penn images, and 423 nonzero mask
+instances. The dataset website's historical headline says 345 pedestrians; the
+423 is our count of IDs in the downloaded masks. The supplied dataset readme
+mentions additional annotations in the release, but we have not independently
+established that this completely explains the difference.
+
+### Similarity, groups, and limitations
+
+Images with identical dimensions and identical decoded RGB pixels have the same
+SHA256 digest; zero exact duplicate groups were found. A 64-bit difference hash
+compares adjacent values in a resized grayscale image. The audit groups image
+pairs with a difference-hash Hamming distance at most 3 as a conservative
+screening rule. Zero pairs met that particular cutoff.
+
+That zero is not proof of independence: during visual contact-sheet review,
+`FudanPed00006` and `FudanPed00008` showed similar views of a scene even though
+their difference-hash distance is 14. We recorded 13 visually related groups,
+including this pair, in `reviewed_groups.json`. Groups can represent similar
+scenes, not necessarily the same person or identical photographs. Any overlapping
+groups are combined before splitting. More related people/scenes may remain
+undetected; report the resulting leakage risk rather than claiming it is solved.
+
+### Why three splits and why group them?
+
+- **Train:** used to adjust model weights.
+- **Validation:** used to compare experiments and select settings.
+- **Test:** held back until decisions are frozen for a final assessment.
+
+If related photos appear in both train and evaluation, the model can benefit
+from seeing similar content during training, inflating the impression of
+generalization. Keeping reviewed and automatically flagged groups together
+reduces this risk. It is not a complete guarantee.
+
+We shuffle groups using seed 42, place larger groups first, and choose a split
+that keeps source-specific counts near 60/20/20. Keeping entire groups means
+the exact target sizes cannot always be guaranteed. This dataset produced:
+
+| Split | Fudan | Penn | Total |
+| --- | ---: | ---: | ---: |
+| Train | 44 | 58 | 102 |
+| Validation | 15 | 19 | 34 |
+| Test | 15 | 19 | 34 |
+
+All 170 IDs occur exactly once, and all 13 related groups stay within one split.
+For example, the two Fudan images above both ended up in training. Splitting by
+image without groups is simpler but ignores related frames; splitting by entire
+location would test a harder domain shift but gives only two location groups.
+
+### AI verification and George's exercise
+
+AI ran the audit twice: both audit files matched each other byte-for-byte, as
+did both split manifests. The full suite passed 19 tests; Ruff lint and format
+checks passed. Tests cover missing pairs, mismatched dimensions, instance counts,
+repeatability, source balance, disjoint membership, and linked-group integrity.
+
+George: run the README audit command into `runs/audit-check`; compare the counts
+and find `FudanPed00006` and `FudanPed00008` in the split file. Explain in your
+own words why seed 42 alone does not prevent leakage, and why a visual group
+review cannot prove that no related images remain across splits. Record actual
+commands and observations here; independent verification remains **pending**.
+
+Next: use the validation split to evaluate the pretrained E0 detector. The test
+split remains untouched for model selection and optimization decisions.

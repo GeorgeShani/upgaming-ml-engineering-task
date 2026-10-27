@@ -34,6 +34,16 @@ Milestone 1 ran successfully on Windows AMD64, Python 3.12.13, CPU, using torch
 evaluation backend passed synthetic known-answer checks. Twelve focused tests
 passed for preprocessing, filtering, and the CLI boundary.
 
+The data audit found 170 paired images and masks with matching dimensions, and
+423 nonzero mask instance IDs. The original dataset webpage's 345-pedestrian
+headline differs from this mask count; the release readme mentions additional
+annotations, but the precise cause has not been independently established.
+
+Using seed 42 and grouping 13 visually related image sets yielded 102 training,
+34 validation, and 34 test images. No decoded-pixel exact duplicates or pairs
+within difference-hash distance 3 were found. This similarity screen and visual
+review are not exhaustive, so related scenes or people may still span splits.
+
 The external TorchVision sample produced one person detection with score
 0.999205 at threshold 0.5. The input tensor was `[3, 640, 480]`, float32, [0, 1].
 See [saved evidence](evidence/milestone-01/README.md). This is a smoke prediction;
@@ -44,8 +54,7 @@ E0, A, B, optimization, and held-out test results remain pending.
 ## Known limitations and next improvements
 
 There is no project-trained model yet. No accuracy claim is supported.
-Next: audit pairing and duplicates, save split manifests, and run
-the validation baseline before training. See the journal for actual evidence
+Next: run the validation baseline before training. See the journal for evidence
 and the implementation plan for the acceptance criteria.
 
 ## Primary references

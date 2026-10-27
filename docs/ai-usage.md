@@ -34,3 +34,12 @@ and journal explanation. AI downloaded the dataset, ran the checks, and visually
 inspected the two boxes and the colorized mask for `FudanPed00001`. George's own
 inspection and explanation remain pending. Dataset images and visualizations
 stay local, consistent with the dataset readme's reposting restrictions.
+
+## Milestone 2, audit and splits
+
+AI wrote and tested the audit and grouped-splitting code, reviewed contact sheets
+for obvious related scenes, created the reviewed group list, and generated the
+committed manifests. AI verified the reported counts and byte-for-byte repeated
+output. The similarity screening and manual review are incomplete safeguards,
+not proof that all related images have been identified. George's independent
+audit walkthrough and verification remain pending.

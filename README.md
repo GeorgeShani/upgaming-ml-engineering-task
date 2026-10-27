@@ -77,6 +77,18 @@ artificial colors to make the original mask's instance IDs visible. Generated
 images stay local in `runs/`. No model is run by this command. See the learning
 journal for a worked example and the next verification exercise.
 
+To audit every image/mask pair and reproduce the grouped splits:
+
+```powershell
+uv run --locked python -m pedestrian.dataset_audit --dataset-root data/PennFudanPed --reviewed-groups manifests/reviewed_groups.json --output runs/audit-check
+Get-Content .\runs\audit-check\splits.json
+```
+
+The committed `manifests/audit.json` records pairing and mask metadata; the
+committed `manifests/splits.json` records the seed and image IDs. Related-image
+groups come from hash screening and a limited visual review. These checks do
+not prove all repeated people or scenes were found.
+
 `pedestrian/model.py` loads the detector; `inference.py` prepares images and
 filters predictions; `predict.py` handles CLI input and saved outputs.
 `check_environment.py` checks native detection and evaluation dependencies.

@@ -1,0 +1,3124 @@
+{
+  "total_images": 170,
+  "total_instances": 423,
+  "sources": {
+    "Fudan": 74,
+    "Penn": 96
+  },
+  "exact_duplicate_groups": [],
+  "near_duplicate_method": "64-bit grayscale difference hash; distance <= 3; not exhaustive",
+  "near_duplicate_candidates": [],
+  "reviewed_groups": [
+    [
+      "FudanPed00006",
+      "FudanPed00008"
+    ],
+    [
+      "FudanPed00044",
+      "FudanPed00045"
+    ],
+    [
+      "FudanPed00046",
+      "FudanPed00047"
+    ],
+    [
+      "FudanPed00059",
+      "FudanPed00060"
+    ],
+    [
+      "PennPed00011",
+      "PennPed00012"
+    ],
+    [
+      "PennPed00013",
+      "PennPed00014"
+    ],
+    [
+      "PennPed00020",
+      "PennPed00021",
+      "PennPed00022"
+    ],
+    [
+      "PennPed00025",
+      "PennPed00026",
+      "PennPed00031",
+      "PennPed00032",
+      "PennPed00034",
+      "PennPed00035",
+      "PennPed00036"
+    ],
+    [
+      "PennPed00037",
+      "PennPed00038",
+      "PennPed00039",
+      "PennPed00040",
+      "PennPed00041"
+    ],
+    [
+      "PennPed00069",
+      "PennPed00070"
+    ],
+    [
+      "PennPed00073",
+      "PennPed00074",
+      "PennPed00075",
+      "PennPed00076",
+      "PennPed00077",
+      "PennPed00078"
+    ],
+    [
+      "PennPed00082",
+      "PennPed00083",
+      "PennPed00084",
+      "PennPed00085"
+    ],
+    [
+      "PennPed00095",
+      "PennPed00096"
+    ]
+  ],
+  "groups_with_multiple_images": [
+    [
+      "FudanPed00006",
+      "FudanPed00008"
+    ],
+    [
+      "FudanPed00044",
+      "FudanPed00045"
+    ],
+    [
+      "FudanPed00046",
+      "FudanPed00047"
+    ],
+    [
+      "FudanPed00059",
+      "FudanPed00060"
+    ],
+    [
+      "PennPed00011",
+      "PennPed00012"
+    ],
+    [
+      "PennPed00013",
+      "PennPed00014"
+    ],
+    [
+      "PennPed00020",
+      "PennPed00021",
+      "PennPed00022"
+    ],
+    [
+      "PennPed00025",
+      "PennPed00026",
+      "PennPed00031",
+      "PennPed00032",
+      "PennPed00034",
+      "PennPed00035",
+      "PennPed00036"
+    ],
+    [
+      "PennPed00037",
+      "PennPed00038",
+      "PennPed00039",
+      "PennPed00040",
+      "PennPed00041"
+    ],
+    [
+      "PennPed00069",
+      "PennPed00070"
+    ],
+    [
+      "PennPed00073",
+      "PennPed00074",
+      "PennPed00075",
+      "PennPed00076",
+      "PennPed00077",
+      "PennPed00078"
+    ],
+    [
+      "PennPed00082",
+      "PennPed00083",
+      "PennPed00084",
+      "PennPed00085"
+    ],
+    [
+      "PennPed00095",
+      "PennPed00096"
+    ]
+  ],
+  "images": [
+    {
+      "image_id": "FudanPed00001",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00001.png",
+      "mask": "PedMasks/FudanPed00001_mask.png",
+      "size_wh": [
+        559,
+        536
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "8c11b2f9690db55460e901e304c9e0a94824813c26aa7862041567298b2b3ec3",
+      "dhash": "706ece939723c363"
+    },
+    {
+      "image_id": "FudanPed00002",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00002.png",
+      "mask": "PedMasks/FudanPed00002_mask.png",
+      "size_wh": [
+        455,
+        414
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "1ea49cafd24a33f259ca313146cac5d07f483e0860eb7d4eed4656cf1a112649",
+      "dhash": "4e262c4d3637fe6c"
+    },
+    {
+      "image_id": "FudanPed00003",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00003.png",
+      "mask": "PedMasks/FudanPed00003_mask.png",
+      "size_wh": [
+        479,
+        445
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "3061f2f659eed6185e21111cbc26c82ef3071f2c9eef539884ef0cc97c040093",
+      "dhash": "7469627161475240"
+    },
+    {
+      "image_id": "FudanPed00004",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00004.png",
+      "mask": "PedMasks/FudanPed00004_mask.png",
+      "size_wh": [
+        396,
+        397
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "195a1183353658969d893ec17b4c5b8f29745b408271a09bc6e7bb0ff354a14d",
+      "dhash": "8828189860283930"
+    },
+    {
+      "image_id": "FudanPed00005",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00005.png",
+      "mask": "PedMasks/FudanPed00005_mask.png",
+      "size_wh": [
+        335,
+        344
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "f8a6cd5e2776084f1d6f8fd1951da5d9fd8dac9668e368d1404bdb9a13b56f65",
+      "dhash": "3090c0c0c8507178"
+    },
+    {
+      "image_id": "FudanPed00006",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00006.png",
+      "mask": "PedMasks/FudanPed00006_mask.png",
+      "size_wh": [
+        385,
+        426
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "0c56569394353b4ae6c9b539a8e5366a8a23667f032f5c1b46071ddee7316284",
+      "dhash": "507020753aaa68e8"
+    },
+    {
+      "image_id": "FudanPed00007",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00007.png",
+      "mask": "PedMasks/FudanPed00007_mask.png",
+      "size_wh": [
+        539,
+        381
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3
+      ],
+      "instances": 3,
+      "pixel_sha256": "d82968b3cd765bb1b9a9f4860adcaea69df87cee9e8de09c37bec5f4ba73b196",
+      "dhash": "63637272b03c3636"
+    },
+    {
+      "image_id": "FudanPed00008",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00008.png",
+      "mask": "PedMasks/FudanPed00008_mask.png",
+      "size_wh": [
+        388,
+        454
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "efa58ed7b4c11537c8b63bad5bfb364892d29e41e88b41c9d1e16b7a41fc546b",
+      "dhash": "94706073726878b8"
+    },
+    {
+      "image_id": "FudanPed00009",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00009.png",
+      "mask": "PedMasks/FudanPed00009_mask.png",
+      "size_wh": [
+        465,
+        441
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "c7fd091bc47d3912349251cb02f7bf477be064aa9e3612d33db2d01e2416613a",
+      "dhash": "a5060c935041c141"
+    },
+    {
+      "image_id": "FudanPed00010",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00010.png",
+      "mask": "PedMasks/FudanPed00010_mask.png",
+      "size_wh": [
+        411,
+        393
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "c052f73edd25613f6fc54f950910ba653ed895c6e962597b777b944d343a53c1",
+      "dhash": "34369a9298966262"
+    },
+    {
+      "image_id": "FudanPed00011",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00011.png",
+      "mask": "PedMasks/FudanPed00011_mask.png",
+      "size_wh": [
+        459,
+        420
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "799a27f9324d0416dfc3b9260a89d8f805735ba52c9d90d371acba9b73110029",
+      "dhash": "b0308892d3d3e5c3"
+    },
+    {
+      "image_id": "FudanPed00012",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00012.png",
+      "mask": "PedMasks/FudanPed00012_mask.png",
+      "size_wh": [
+        468,
+        384
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "f6bc016ce73247a3c0ed37defa15abb3d8e2c0c8048ec005e0092ca4a6f2140b",
+      "dhash": "6c4c4f6bb193b333"
+    },
+    {
+      "image_id": "FudanPed00013",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00013.png",
+      "mask": "PedMasks/FudanPed00013_mask.png",
+      "size_wh": [
+        652,
+        498
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "6d00d86ab8ba79ee218bca7b882924896a163efdd00afb3a51ab037b5dd1aee8",
+      "dhash": "5633304b43637b63"
+    },
+    {
+      "image_id": "FudanPed00014",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00014.png",
+      "mask": "PedMasks/FudanPed00014_mask.png",
+      "size_wh": [
+        456,
+        383
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "bff8c17209a7eab30feea847d81e6fc62d27dfff4b76cac904d9f8d7ccb5b3f1",
+      "dhash": "2fa4c8deced9e98d"
+    },
+    {
+      "image_id": "FudanPed00015",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00015.png",
+      "mask": "PedMasks/FudanPed00015_mask.png",
+      "size_wh": [
+        336,
+        349
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "e328375ab1c9aab104ab7af6cbf6352e2dbe5c7a9e3a9c6942e586643614c8f1",
+      "dhash": "8565939304b49bc9"
+    },
+    {
+      "image_id": "FudanPed00016",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00016.png",
+      "mask": "PedMasks/FudanPed00016_mask.png",
+      "size_wh": [
+        544,
+        425
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3
+      ],
+      "instances": 3,
+      "pixel_sha256": "0714732ab654de947bb290c857ad25f0d888616110833da0931b7130bfef5d71",
+      "dhash": "6318123a62c43acc"
+    },
+    {
+      "image_id": "FudanPed00017",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00017.png",
+      "mask": "PedMasks/FudanPed00017_mask.png",
+      "size_wh": [
+        266,
+        342
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "f780b5eaf396df42489099bcf635c602af236fb0a5dd5c6df99610c5e728f296",
+      "dhash": "5cb5bc38080aba92"
+    },
+    {
+      "image_id": "FudanPed00018",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00018.png",
+      "mask": "PedMasks/FudanPed00018_mask.png",
+      "size_wh": [
+        253,
+        323
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "c47fcf1dfdd275ec4bc463137017faf8150f320aaf8e9adcd45410ea3e1d1d9a",
+      "dhash": "0565111929890937"
+    },
+    {
+      "image_id": "FudanPed00019",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00019.png",
+      "mask": "PedMasks/FudanPed00019_mask.png",
+      "size_wh": [
+        497,
+        442
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "30e640827fa3abd60e4646545d37ada52d8a6ba742a1e65f5586f4598ef34d24",
+      "dhash": "141dccec8cecb1a8"
+    },
+    {
+      "image_id": "FudanPed00020",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00020.png",
+      "mask": "PedMasks/FudanPed00020_mask.png",
+      "size_wh": [
+        555,
+        417
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "56bbd8306aad7b49ed93cc993741e00047480b79e85ac3d0e705a8920d22c6fd",
+      "dhash": "78342360cc9c9999"
+    },
+    {
+      "image_id": "FudanPed00021",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00021.png",
+      "mask": "PedMasks/FudanPed00021_mask.png",
+      "size_wh": [
+        490,
+        378
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3
+      ],
+      "instances": 3,
+      "pixel_sha256": "844cae5384e56f587866d36699addbd3ba01dbb4f86f5435a0a6f95d6d7e6a3e",
+      "dhash": "7470262620119595"
+    },
+    {
+      "image_id": "FudanPed00022",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00022.png",
+      "mask": "PedMasks/FudanPed00022_mask.png",
+      "size_wh": [
+        536,
+        465
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "9e07ca0de309832ad6516d369eee60b2f253f63f5bb9f07a4b7a76403dbf4aa3",
+      "dhash": "429294ada5247424"
+    },
+    {
+      "image_id": "FudanPed00023",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00023.png",
+      "mask": "PedMasks/FudanPed00023_mask.png",
+      "size_wh": [
+        376,
+        378
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "abde1aab00e5adb267c03308b50b5786319845ba9659c2ba208836e89774b580",
+      "dhash": "56772ed0c34c8e2e"
+    },
+    {
+      "image_id": "FudanPed00024",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00024.png",
+      "mask": "PedMasks/FudanPed00024_mask.png",
+      "size_wh": [
+        479,
+        378
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "1f4375c9890472f46bd9d9944d958f1ca98683a4a16aaa267370f7af0364784b",
+      "dhash": "04100e3c2c443639"
+    },
+    {
+      "image_id": "FudanPed00025",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00025.png",
+      "mask": "PedMasks/FudanPed00025_mask.png",
+      "size_wh": [
+        425,
+        369
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "instances": 6,
+      "pixel_sha256": "708740e67cfcb1b304ac9633799ed9f55ef09e7763f49b31fae308aab804137d",
+      "dhash": "5c5933b2da5a1a18"
+    },
+    {
+      "image_id": "FudanPed00026",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00026.png",
+      "mask": "PedMasks/FudanPed00026_mask.png",
+      "size_wh": [
+        440,
+        427
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "ff696f7880495a71dca5b811e8c17c947bc8e4aef76940f4d0c1c034e6a2e8a3",
+      "dhash": "000b7b8cb4a48302"
+    },
+    {
+      "image_id": "FudanPed00027",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00027.png",
+      "mask": "PedMasks/FudanPed00027_mask.png",
+      "size_wh": [
+        302,
+        363
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "a92a35e2daa121ace7df5551e83b92bdf95c7eea8b6ccbc486e16a417642022b",
+      "dhash": "2424acd84907ad05"
+    },
+    {
+      "image_id": "FudanPed00028",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00028.png",
+      "mask": "PedMasks/FudanPed00028_mask.png",
+      "size_wh": [
+        317,
+        345
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "d2f1c81f98fb07ec239191d6ab7b6a5aeea203aeb6a71484840fd9f077306c13",
+      "dhash": "10346533332b191b"
+    },
+    {
+      "image_id": "FudanPed00029",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00029.png",
+      "mask": "PedMasks/FudanPed00029_mask.png",
+      "size_wh": [
+        435,
+        404
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "6b699efd868619467208c3989bef0127bf20e2c4960059902570c22552d5590c",
+      "dhash": "0011319142ce0a12"
+    },
+    {
+      "image_id": "FudanPed00030",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00030.png",
+      "mask": "PedMasks/FudanPed00030_mask.png",
+      "size_wh": [
+        462,
+        387
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "bef3b0c117eb3cd49dd35f9c86a1cd4db68fff0ad7a8b2d8c1b32ae1783a3430",
+      "dhash": "8aca14292d8dc262"
+    },
+    {
+      "image_id": "FudanPed00031",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00031.png",
+      "mask": "PedMasks/FudanPed00031_mask.png",
+      "size_wh": [
+        569,
+        430
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "99df96b83adae89938d472d538a05197b634ea571276950afd03ad858c99bbd6",
+      "dhash": "191391656f2e260e"
+    },
+    {
+      "image_id": "FudanPed00032",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00032.png",
+      "mask": "PedMasks/FudanPed00032_mask.png",
+      "size_wh": [
+        608,
+        474
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "4c8e1c228749e1f99907cc293a98dbea3bd4d7172f2477ff29d359f31aaf9a96",
+      "dhash": "7178f0a1b4b0dacc"
+    },
+    {
+      "image_id": "FudanPed00033",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00033.png",
+      "mask": "PedMasks/FudanPed00033_mask.png",
+      "size_wh": [
+        396,
+        357
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "dd5413de2ccc7d970aeb05a4fa925d09d8c288c2b8c5f478b5a25961e01196b8",
+      "dhash": "2e9b9e6f6dadc96d"
+    },
+    {
+      "image_id": "FudanPed00034",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00034.png",
+      "mask": "PedMasks/FudanPed00034_mask.png",
+      "size_wh": [
+        309,
+        351
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "bceb7e6a8a48d68cf219de2818e8c6d576492269f24fd648ba6dac567f482d4b",
+      "dhash": "2c28b86462656552"
+    },
+    {
+      "image_id": "FudanPed00035",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00035.png",
+      "mask": "PedMasks/FudanPed00035_mask.png",
+      "size_wh": [
+        292,
+        349
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "734c471775fc2720d86a31c131ad487789d505957675029e099c45ad47701755",
+      "dhash": "13d2cc2ce5acec6c"
+    },
+    {
+      "image_id": "FudanPed00036",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00036.png",
+      "mask": "PedMasks/FudanPed00036_mask.png",
+      "size_wh": [
+        1017,
+        444
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "instances": 4,
+      "pixel_sha256": "aa635ee817ef74878cb87ee0d1e20439e60fc8e0444d2bfa47627b4ebd524143",
+      "dhash": "d0232317143d3931"
+    },
+    {
+      "image_id": "FudanPed00037",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00037.png",
+      "mask": "PedMasks/FudanPed00037_mask.png",
+      "size_wh": [
+        423,
+        361
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "f086713581ed4eefe23d4e1611bb06b32ad9954ac54ac46bcb68672251f4bfec",
+      "dhash": "b0a06070193c64c0"
+    },
+    {
+      "image_id": "FudanPed00038",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00038.png",
+      "mask": "PedMasks/FudanPed00038_mask.png",
+      "size_wh": [
+        422,
+        346
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "d4bdaa9af5920be51e93bc6bc9906bd1370a2f21b299eda4903adca6fe92bcb1",
+      "dhash": "56a4a42b22a8f8fb"
+    },
+    {
+      "image_id": "FudanPed00039",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00039.png",
+      "mask": "PedMasks/FudanPed00039_mask.png",
+      "size_wh": [
+        493,
+        487
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "810d795a5b05d7e997ffeac0e0b41cd99acbc048e6737f4d259110e807916912",
+      "dhash": "6e6fe7f2dafbd091"
+    },
+    {
+      "image_id": "FudanPed00040",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00040.png",
+      "mask": "PedMasks/FudanPed00040_mask.png",
+      "size_wh": [
+        550,
+        482
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "9975f12fa5ddf74b250aae2d12e8b54512878082b2f6f4a059ba77486cab5bb6",
+      "dhash": "a4ad29616d5d5ef8"
+    },
+    {
+      "image_id": "FudanPed00041",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00041.png",
+      "mask": "PedMasks/FudanPed00041_mask.png",
+      "size_wh": [
+        552,
+        507
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3
+      ],
+      "instances": 3,
+      "pixel_sha256": "d9104b4f5af69f3db9f2a82a4e0a5be4435da3b2ac9763db40f689baf37e79df",
+      "dhash": "fe9e1c4ccad94cdc"
+    },
+    {
+      "image_id": "FudanPed00042",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00042.png",
+      "mask": "PedMasks/FudanPed00042_mask.png",
+      "size_wh": [
+        588,
+        547
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "35038f3bea2074d93da898b6b07025f04792212e655598b9c1c4babcf68d7f16",
+      "dhash": "7854a898cc4c4c7b"
+    },
+    {
+      "image_id": "FudanPed00043",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00043.png",
+      "mask": "PedMasks/FudanPed00043_mask.png",
+      "size_wh": [
+        493,
+        518
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3
+      ],
+      "instances": 3,
+      "pixel_sha256": "be4e749cc092b36ac8e46f1a1acbed2a9acb239ff344b4d5335b09c1035e7226",
+      "dhash": "e4139b9b1654c53c"
+    },
+    {
+      "image_id": "FudanPed00044",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00044.png",
+      "mask": "PedMasks/FudanPed00044_mask.png",
+      "size_wh": [
+        521,
+        494
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "instances": 4,
+      "pixel_sha256": "875573ead5db76263ab5796c780218058042fb8bc7f4ef8958972703a25ee6b4",
+      "dhash": "b9b9b9d8cec38190"
+    },
+    {
+      "image_id": "FudanPed00045",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00045.png",
+      "mask": "PedMasks/FudanPed00045_mask.png",
+      "size_wh": [
+        487,
+        538
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3
+      ],
+      "instances": 3,
+      "pixel_sha256": "665c1008dc6e1a516f82a2e7a5d8b79ab0655848e6964493fd73759c7b60eefa",
+      "dhash": "232771d34b022310"
+    },
+    {
+      "image_id": "FudanPed00046",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00046.png",
+      "mask": "PedMasks/FudanPed00046_mask.png",
+      "size_wh": [
+        567,
+        438
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "instances": 4,
+      "pixel_sha256": "1a6827594d17e01b8cb4b815d0cb526880702f5b85ce61e4330032eaa345ebe6",
+      "dhash": "e44626174d2ea5b9"
+    },
+    {
+      "image_id": "FudanPed00047",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00047.png",
+      "mask": "PedMasks/FudanPed00047_mask.png",
+      "size_wh": [
+        472,
+        520
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3
+      ],
+      "instances": 3,
+      "pixel_sha256": "b17d393ba21a878d13164a3e53a6bff90e21972182b114be7dbd00fb86810239",
+      "dhash": "a6929aaeb6a8bc09"
+    },
+    {
+      "image_id": "FudanPed00048",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00048.png",
+      "mask": "PedMasks/FudanPed00048_mask.png",
+      "size_wh": [
+        585,
+        559
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "instances": 4,
+      "pixel_sha256": "2ea1bc49e86639e7dbcc4647512c729bb841824902f7e47d5e2db111a00cb35f",
+      "dhash": "40e093169230f1d0"
+    },
+    {
+      "image_id": "FudanPed00049",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00049.png",
+      "mask": "PedMasks/FudanPed00049_mask.png",
+      "size_wh": [
+        447,
+        512
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3
+      ],
+      "instances": 3,
+      "pixel_sha256": "e4c0068a73a9cf71c87955d688d401ed3800c5e19c543fb62a69296515444ec4",
+      "dhash": "b050737a7954ce1c"
+    },
+    {
+      "image_id": "FudanPed00050",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00050.png",
+      "mask": "PedMasks/FudanPed00050_mask.png",
+      "size_wh": [
+        580,
+        516
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "6217b131ec1d3a14c693a1a7a9cf01f74d8cde212900eb41a56727b7ccad283d",
+      "dhash": "c1ed4e66265141c3"
+    },
+    {
+      "image_id": "FudanPed00051",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00051.png",
+      "mask": "PedMasks/FudanPed00051_mask.png",
+      "size_wh": [
+        448,
+        501
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "d6b23e553d8ba9fbf0f15b28288fc6556dcc88a9ff74dfac1d031b03df69bf72",
+      "dhash": "a452191999875b43"
+    },
+    {
+      "image_id": "FudanPed00052",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00052.png",
+      "mask": "PedMasks/FudanPed00052_mask.png",
+      "size_wh": [
+        461,
+        504
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "c9cc2afb0c8f4cf7b7773b6a0b9064517b401712196d1c322a19ee6cc5b88ac7",
+      "dhash": "7f29a1a4e1898983"
+    },
+    {
+      "image_id": "FudanPed00053",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00053.png",
+      "mask": "PedMasks/FudanPed00053_mask.png",
+      "size_wh": [
+        541,
+        580
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "258e13c80a4e532289dbc4ab1f0c656790159a00db2623b5463d37a0d4a248e3",
+      "dhash": "935b858484c541cd"
+    },
+    {
+      "image_id": "FudanPed00054",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00054.png",
+      "mask": "PedMasks/FudanPed00054_mask.png",
+      "size_wh": [
+        533,
+        498
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3
+      ],
+      "instances": 3,
+      "pixel_sha256": "fab04c73bd75e10d5e460e9f5ddba020f81a52769525270121d594731a664f4e",
+      "dhash": "448b1b1b186d74ba"
+    },
+    {
+      "image_id": "FudanPed00055",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00055.png",
+      "mask": "PedMasks/FudanPed00055_mask.png",
+      "size_wh": [
+        390,
+        555
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "3ebc03013fdd766ae8bf8e15e480dea6a3c8d2184ea926cb9ab6232520bbe186",
+      "dhash": "1f9f9c8d63647ced"
+    },
+    {
+      "image_id": "FudanPed00056",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00056.png",
+      "mask": "PedMasks/FudanPed00056_mask.png",
+      "size_wh": [
+        565,
+        581
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3
+      ],
+      "instances": 3,
+      "pixel_sha256": "34f03bdef26efb15cf05d24bee12aad82cb2093748d95c2bc0acf5e28cd61c73",
+      "dhash": "444c4de5ce723276"
+    },
+    {
+      "image_id": "FudanPed00057",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00057.png",
+      "mask": "PedMasks/FudanPed00057_mask.png",
+      "size_wh": [
+        482,
+        519
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "instances": 5,
+      "pixel_sha256": "d752ebb51adca9788cdd690a5b0e54c5b2f4d75003a8bd9294fd8085517e2798",
+      "dhash": "00f009591129142e"
+    },
+    {
+      "image_id": "FudanPed00058",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00058.png",
+      "mask": "PedMasks/FudanPed00058_mask.png",
+      "size_wh": [
+        522,
+        479
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "instances": 8,
+      "pixel_sha256": "9f2696682469127452764943f518a9085d926a5420d665a390cdf939361488a7",
+      "dhash": "e6f6663698e72638"
+    },
+    {
+      "image_id": "FudanPed00059",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00059.png",
+      "mask": "PedMasks/FudanPed00059_mask.png",
+      "size_wh": [
+        576,
+        369
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3
+      ],
+      "instances": 3,
+      "pixel_sha256": "01e20aa2050453886e1404560e21a511391a78f80636312b8bb4ea92b05da9a8",
+      "dhash": "c5f57577ea26b532"
+    },
+    {
+      "image_id": "FudanPed00060",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00060.png",
+      "mask": "PedMasks/FudanPed00060_mask.png",
+      "size_wh": [
+        517,
+        440
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3
+      ],
+      "instances": 3,
+      "pixel_sha256": "adbbb249a839713560b052d93f80ca5fae1528415740f873979d9b240dee4f4a",
+      "dhash": "141c0cb3d09cbcbc"
+    },
+    {
+      "image_id": "FudanPed00061",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00061.png",
+      "mask": "PedMasks/FudanPed00061_mask.png",
+      "size_wh": [
+        547,
+        407
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3
+      ],
+      "instances": 3,
+      "pixel_sha256": "381defead0d540b651dd4e6650b02e914f1f73cefe71fbed1ccc8007d15b1dda",
+      "dhash": "767676772464deb4"
+    },
+    {
+      "image_id": "FudanPed00062",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00062.png",
+      "mask": "PedMasks/FudanPed00062_mask.png",
+      "size_wh": [
+        414,
+        341
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "f2387815c20c361e7356b7b2967e0e7626efac39df0311a6cdaa603f3f4ba0fb",
+      "dhash": "6f4f6c694c4c49c8"
+    },
+    {
+      "image_id": "FudanPed00063",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00063.png",
+      "mask": "PedMasks/FudanPed00063_mask.png",
+      "size_wh": [
+        486,
+        359
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "instances": 5,
+      "pixel_sha256": "81e983135b80f359ee71eb065a4ee34773851f29929a3412bf15f0667f4b5214",
+      "dhash": "e5e5e565696de464"
+    },
+    {
+      "image_id": "FudanPed00064",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00064.png",
+      "mask": "PedMasks/FudanPed00064_mask.png",
+      "size_wh": [
+        546,
+        420
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3
+      ],
+      "instances": 3,
+      "pixel_sha256": "c4ca8eafd97948897f494715d8573019248ec9511e2202b876be0d15ca1df3cb",
+      "dhash": "72727409892b522a"
+    },
+    {
+      "image_id": "FudanPed00065",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00065.png",
+      "mask": "PedMasks/FudanPed00065_mask.png",
+      "size_wh": [
+        504,
+        411
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "instances": 5,
+      "pixel_sha256": "16327764bff6bd800e9528d450e6a753fa61b726e98ffe1dae624f93e86f40a1",
+      "dhash": "9db9c9894d8da5c6"
+    },
+    {
+      "image_id": "FudanPed00066",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00066.png",
+      "mask": "PedMasks/FudanPed00066_mask.png",
+      "size_wh": [
+        360,
+        359
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "bf1f540f5f30a7e28699cd123521d4c164c98a2223d97927ff94018ef98c3657",
+      "dhash": "2684888897961e3d"
+    },
+    {
+      "image_id": "FudanPed00067",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00067.png",
+      "mask": "PedMasks/FudanPed00067_mask.png",
+      "size_wh": [
+        453,
+        416
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "292bfe3437b28ebedd5502d745021f60312f4e7566efd19ba14a3bc9d91f924c",
+      "dhash": "011393db0c2c2d1d"
+    },
+    {
+      "image_id": "FudanPed00068",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00068.png",
+      "mask": "PedMasks/FudanPed00068_mask.png",
+      "size_wh": [
+        375,
+        398
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "0843abe8168d158765feac2248b2fcb1c854af7f381fdba72ea274d70145c8ac",
+      "dhash": "202030c0c9d9f9e8"
+    },
+    {
+      "image_id": "FudanPed00069",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00069.png",
+      "mask": "PedMasks/FudanPed00069_mask.png",
+      "size_wh": [
+        354,
+        379
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "007b4873edb026c330ef684e70cc8cbf823fe50861e08c8e65e0946c929a7780",
+      "dhash": "7072316cdbdbe989"
+    },
+    {
+      "image_id": "FudanPed00070",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00070.png",
+      "mask": "PedMasks/FudanPed00070_mask.png",
+      "size_wh": [
+        390,
+        382
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "f84e5e2a3749a9d86beb5c6e65f6371458e5de25bfa4e863b24333ec8c86f968",
+      "dhash": "7c607c5160646765"
+    },
+    {
+      "image_id": "FudanPed00071",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00071.png",
+      "mask": "PedMasks/FudanPed00071_mask.png",
+      "size_wh": [
+        363,
+        353
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3
+      ],
+      "instances": 3,
+      "pixel_sha256": "3c63ebb57b919e6343d8e7481491dd521d8ca3f7c3127c2bb631c886d15c57a2",
+      "dhash": "6cac6c4c6c6e4e42"
+    },
+    {
+      "image_id": "FudanPed00072",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00072.png",
+      "mask": "PedMasks/FudanPed00072_mask.png",
+      "size_wh": [
+        375,
+        349
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "a0bd8824b15c4237d96b461c7f00e96827a144f6942239702a2728d5bb8421d0",
+      "dhash": "f363a3435b32f2f0"
+    },
+    {
+      "image_id": "FudanPed00073",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00073.png",
+      "mask": "PedMasks/FudanPed00073_mask.png",
+      "size_wh": [
+        516,
+        392
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "5865bb19647ee89b70f5229c18b73b2f1d421a3e0af6cce1852d461851b011f8",
+      "dhash": "c9edd1f15351e59c"
+    },
+    {
+      "image_id": "FudanPed00074",
+      "source": "Fudan",
+      "image": "PNGImages/FudanPed00074.png",
+      "mask": "PedMasks/FudanPed00074_mask.png",
+      "size_wh": [
+        421,
+        370
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "5b4cb070c75d1d43699da773c88583afce95a9fa61cd1f4e624056e86839c0ed",
+      "dhash": "d9b5b1494d6e366f"
+    },
+    {
+      "image_id": "PennPed00001",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00001.png",
+      "mask": "PedMasks/PennPed00001_mask.png",
+      "size_wh": [
+        612,
+        406
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "instances": 5,
+      "pixel_sha256": "e8a117599ddd103a8ed812cff652eefe764c7cea3feee1a747936e6bf980ad97",
+      "dhash": "f8bca9a9aca4b9e0"
+    },
+    {
+      "image_id": "PennPed00002",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00002.png",
+      "mask": "PedMasks/PennPed00002_mask.png",
+      "size_wh": [
+        745,
+        378
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "instances": 6,
+      "pixel_sha256": "84133d87f6ae6bc18549090966361efeefcd059cc28f50ea39480446d8d3e67e",
+      "dhash": "53556574c8eaab91"
+    },
+    {
+      "image_id": "PennPed00003",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00003.png",
+      "mask": "PedMasks/PennPed00003_mask.png",
+      "size_wh": [
+        670,
+        418
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3
+      ],
+      "instances": 3,
+      "pixel_sha256": "a6c1f369cc4f3a43536e7fa511fee02b5436f728e1c5dff2a7a4535874b458bc",
+      "dhash": "c8a0a99ac5c5bc1d"
+    },
+    {
+      "image_id": "PennPed00004",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00004.png",
+      "mask": "PedMasks/PennPed00004_mask.png",
+      "size_wh": [
+        786,
+        436
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "instances": 5,
+      "pixel_sha256": "c859a38971a9fadfc398a7ce4dbeae1ab790d73e2862a8486f6234c070864180",
+      "dhash": "5a524bcaab4a5d9b"
+    },
+    {
+      "image_id": "PennPed00005",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00005.png",
+      "mask": "PedMasks/PennPed00005_mask.png",
+      "size_wh": [
+        767,
+        454
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "instances": 5,
+      "pixel_sha256": "f061f072671f49edf5b3ff148fcd456443f043c2ace730570b5af9f776035237",
+      "dhash": "6e6e2e2e2e2d0c3d"
+    },
+    {
+      "image_id": "PennPed00006",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00006.png",
+      "mask": "PedMasks/PennPed00006_mask.png",
+      "size_wh": [
+        631,
+        436
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "instances": 4,
+      "pixel_sha256": "548bad324c6e296602e8883167fb8b0cd3af0bdb870b01b2cce437801d245a0b",
+      "dhash": "78606c2bbbaaeefe"
+    },
+    {
+      "image_id": "PennPed00007",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00007.png",
+      "mask": "PedMasks/PennPed00007_mask.png",
+      "size_wh": [
+        570,
+        412
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "instances": 5,
+      "pixel_sha256": "cb091f57851a68da908acb80392b594c0c084461616147a689af147dbaeb58b8",
+      "dhash": "d79688dbd29ab9a5"
+    },
+    {
+      "image_id": "PennPed00008",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00008.png",
+      "mask": "PedMasks/PennPed00008_mask.png",
+      "size_wh": [
+        452,
+        403
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "instances": 4,
+      "pixel_sha256": "f43f08f421a7de7349c47f8d5cd14cf5a7441232ac652c5d02cb11b47855bc12",
+      "dhash": "beb6339b3b848141"
+    },
+    {
+      "image_id": "PennPed00009",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00009.png",
+      "mask": "PedMasks/PennPed00009_mask.png",
+      "size_wh": [
+        648,
+        413
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "instances": 7,
+      "pixel_sha256": "18ead3201ff56578a98cfe216e7d9b791469c67f345491dc62385c025afed89b",
+      "dhash": "2809595b1032143b"
+    },
+    {
+      "image_id": "PennPed00010",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00010.png",
+      "mask": "PedMasks/PennPed00010_mask.png",
+      "size_wh": [
+        750,
+        495
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "instances": 6,
+      "pixel_sha256": "19c1ea1fdf7cdcb0d89942c207f2f1a4281feb050a01d296b78cac50ee611c73",
+      "dhash": "cd6d2c0e6c356cdc"
+    },
+    {
+      "image_id": "PennPed00011",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00011.png",
+      "mask": "PedMasks/PennPed00011_mask.png",
+      "size_wh": [
+        508,
+        376
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "35721cfc0a77cbc3b3aabe6c9b9183088ed57b4d855bf8529119f17798713b2c",
+      "dhash": "1d2c646c6c65e482"
+    },
+    {
+      "image_id": "PennPed00012",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00012.png",
+      "mask": "PedMasks/PennPed00012_mask.png",
+      "size_wh": [
+        565,
+        429
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "34ae18eea5407a18d7733ae43f4faa816ee619da7809d7724eefbfcd6678cb5c",
+      "dhash": "5a4cd5cc4dc9a421"
+    },
+    {
+      "image_id": "PennPed00013",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00013.png",
+      "mask": "PedMasks/PennPed00013_mask.png",
+      "size_wh": [
+        564,
+        385
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "instances": 4,
+      "pixel_sha256": "97f6f95938774965726b8f6ef9771c521eca0e0658d7c0e1159a121f9713ed85",
+      "dhash": "5b5b4b7a7875f3f3"
+    },
+    {
+      "image_id": "PennPed00014",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00014.png",
+      "mask": "PedMasks/PennPed00014_mask.png",
+      "size_wh": [
+        542,
+        368
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "instances": 4,
+      "pixel_sha256": "a1d8daeed422ec2974c40c1b4f50d8b892e9fd85368d3c7268adcd177306c379",
+      "dhash": "2e2fededcedb5979"
+    },
+    {
+      "image_id": "PennPed00015",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00015.png",
+      "mask": "PedMasks/PennPed00015_mask.png",
+      "size_wh": [
+        906,
+        438
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3
+      ],
+      "instances": 3,
+      "pixel_sha256": "5554815229b02c4abda151bad49b0e940365f123c8eace66176b33c8d0a3de82",
+      "dhash": "efcec4435b1a2266"
+    },
+    {
+      "image_id": "PennPed00016",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00016.png",
+      "mask": "PedMasks/PennPed00016_mask.png",
+      "size_wh": [
+        683,
+        399
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3
+      ],
+      "instances": 3,
+      "pixel_sha256": "e1167157f5a2f4f852b97f4912fdfd94f51a891e9cdcce03ca16e308b2edcba8",
+      "dhash": "26672525293cd8da"
+    },
+    {
+      "image_id": "PennPed00017",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00017.png",
+      "mask": "PedMasks/PennPed00017_mask.png",
+      "size_wh": [
+        492,
+        403
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "5140628649ed717983b357c946ab12100aedb00bce78b409cb5dbcd39e198a42",
+      "dhash": "832b1b33a6d2b220"
+    },
+    {
+      "image_id": "PennPed00018",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00018.png",
+      "mask": "PedMasks/PennPed00018_mask.png",
+      "size_wh": [
+        460,
+        344
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "1edc415cf84b88b399529f476fc623c0dec7a33a0630fb36aaf4a3beec8b9f16",
+      "dhash": "e0d5901454d4dcdf"
+    },
+    {
+      "image_id": "PennPed00019",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00019.png",
+      "mask": "PedMasks/PennPed00019_mask.png",
+      "size_wh": [
+        734,
+        404
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "instances": 7,
+      "pixel_sha256": "61eee187ab3514a95e2ad9e23bd7d528b33203a2e80aa5cde902f1cf197f379c",
+      "dhash": "da5a5a5a9899c863"
+    },
+    {
+      "image_id": "PennPed00020",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00020.png",
+      "mask": "PedMasks/PennPed00020_mask.png",
+      "size_wh": [
+        721,
+        428
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3
+      ],
+      "instances": 3,
+      "pixel_sha256": "3f374c19ea24411e86123a83cf5e8a251fdd2649a07ffb99dbf4d31b69473808",
+      "dhash": "3ce9e2ed4dc95313"
+    },
+    {
+      "image_id": "PennPed00021",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00021.png",
+      "mask": "PedMasks/PennPed00021_mask.png",
+      "size_wh": [
+        712,
+        436
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3
+      ],
+      "instances": 3,
+      "pixel_sha256": "855a48f45d11316d9d5e5f1298aa666f1a73d5b823ef55401887a5100e89abf4",
+      "dhash": "249c3e8e9696030b"
+    },
+    {
+      "image_id": "PennPed00022",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00022.png",
+      "mask": "PedMasks/PennPed00022_mask.png",
+      "size_wh": [
+        925,
+        486
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "instances": 5,
+      "pixel_sha256": "79d529ce9740964d4a39629c90377fbcd1744dd867628fadac191e30f7903225",
+      "dhash": "191b2be9aecacbca"
+    },
+    {
+      "image_id": "PennPed00023",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00023.png",
+      "mask": "PedMasks/PennPed00023_mask.png",
+      "size_wh": [
+        536,
+        382
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "7c7ce79bf499239831a1d1ce6390b2a5de2abc0b35a3805630cd8cf3711b7100",
+      "dhash": "03db52565654f54d"
+    },
+    {
+      "image_id": "PennPed00024",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00024.png",
+      "mask": "PedMasks/PennPed00024_mask.png",
+      "size_wh": [
+        409,
+        384
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "85d182f4e85c125c8e7a6a5d779ee1f025bcc3a30575c34f69fe32e934853346",
+      "dhash": "03c3b376ec501a1b"
+    },
+    {
+      "image_id": "PennPed00025",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00025.png",
+      "mask": "PedMasks/PennPed00025_mask.png",
+      "size_wh": [
+        450,
+        334
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3
+      ],
+      "instances": 3,
+      "pixel_sha256": "0329e74526ec6ffc27545caa94387b7e3a290843d4c53e85131ee8af4c22e451",
+      "dhash": "cc4cec040515161e"
+    },
+    {
+      "image_id": "PennPed00026",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00026.png",
+      "mask": "PedMasks/PennPed00026_mask.png",
+      "size_wh": [
+        530,
+        410
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "10e815de56ba5473f89d8b2b86e39f7c14bec06f8bfb641f66845416ab471ed6",
+      "dhash": "581021335359753c"
+    },
+    {
+      "image_id": "PennPed00027",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00027.png",
+      "mask": "PedMasks/PennPed00027_mask.png",
+      "size_wh": [
+        492,
+        391
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3
+      ],
+      "instances": 3,
+      "pixel_sha256": "052b77f8aeaf8033981edbfd1c7e29667d325a83edcb84fca2a6a384a89e3d3e",
+      "dhash": "9256565627b59232"
+    },
+    {
+      "image_id": "PennPed00028",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00028.png",
+      "mask": "PedMasks/PennPed00028_mask.png",
+      "size_wh": [
+        416,
+        368
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "3159961b23a5da14528db45cb69f225ed06905e6ce88968e2efed72dbc4b2331",
+      "dhash": "6a3cc8d1b327071c"
+    },
+    {
+      "image_id": "PennPed00029",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00029.png",
+      "mask": "PedMasks/PennPed00029_mask.png",
+      "size_wh": [
+        672,
+        418
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "instances": 4,
+      "pixel_sha256": "93f3a70a9225c371a3535e3c44e0080d1f884b5d4e3977b664e808ed27b7b25a",
+      "dhash": "1a5bbbaba3cdcdc1"
+    },
+    {
+      "image_id": "PennPed00030",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00030.png",
+      "mask": "PedMasks/PennPed00030_mask.png",
+      "size_wh": [
+        479,
+        354
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3
+      ],
+      "instances": 3,
+      "pixel_sha256": "b12dcc801a5211b420588d8ae00903e7903c3134cca6e7d85252e003d08175eb",
+      "dhash": "656735b7999be6a6"
+    },
+    {
+      "image_id": "PennPed00031",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00031.png",
+      "mask": "PedMasks/PennPed00031_mask.png",
+      "size_wh": [
+        487,
+        340
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "344a9525f3e1e5b308261f2b0d2367f814c01d003fb65ae728e27cabb54dfdf9",
+      "dhash": "7831a72b28c33c3b"
+    },
+    {
+      "image_id": "PennPed00032",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00032.png",
+      "mask": "PedMasks/PennPed00032_mask.png",
+      "size_wh": [
+        374,
+        344
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "63d0d1ef70aa4b8637c2d269a02a5f140d8249c7e1776ab45ffc7175afa732c4",
+      "dhash": "c011769cc92ae999"
+    },
+    {
+      "image_id": "PennPed00033",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00033.png",
+      "mask": "PedMasks/PennPed00033_mask.png",
+      "size_wh": [
+        533,
+        391
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "instances": 4,
+      "pixel_sha256": "900aab98a543c25d6db061b7ea9b8f922c94ceb97ad3043205ea689f4fbe3b8b",
+      "dhash": "cdf46471f3a6a6e3"
+    },
+    {
+      "image_id": "PennPed00034",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00034.png",
+      "mask": "PedMasks/PennPed00034_mask.png",
+      "size_wh": [
+        538,
+        422
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "instances": 4,
+      "pixel_sha256": "6bcbc04fa4bc565a9140b649ea069c1078ac2b228293239f8b9941b866abdc19",
+      "dhash": "9fee686367610987"
+    },
+    {
+      "image_id": "PennPed00035",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00035.png",
+      "mask": "PedMasks/PennPed00035_mask.png",
+      "size_wh": [
+        623,
+        353
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3
+      ],
+      "instances": 3,
+      "pixel_sha256": "c746a392e908fc79e40051603b55cb636f5a16934af8e14db9e7700a76042286",
+      "dhash": "4754546465344c77"
+    },
+    {
+      "image_id": "PennPed00036",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00036.png",
+      "mask": "PedMasks/PennPed00036_mask.png",
+      "size_wh": [
+        694,
+        370
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "12affabcae1875d3d6f7d377de523e2d33c89e45cb3643d05cf0e35871a92de9",
+      "dhash": "f061485863b392bb"
+    },
+    {
+      "image_id": "PennPed00037",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00037.png",
+      "mask": "PedMasks/PennPed00037_mask.png",
+      "size_wh": [
+        366,
+        318
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "732a0068f74835c62a4cf82b3693a6e5bb59fc81e91c669dfecc94c7920e87a7",
+      "dhash": "26ccdcb3cacbcfc9"
+    },
+    {
+      "image_id": "PennPed00038",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00038.png",
+      "mask": "PedMasks/PennPed00038_mask.png",
+      "size_wh": [
+        436,
+        353
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "78c8a38c05d051c649ac57a1d73019f42e3136c0f9bbb5d6fa08fe178f06f93a",
+      "dhash": "fc3c4d49496a3233"
+    },
+    {
+      "image_id": "PennPed00039",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00039.png",
+      "mask": "PedMasks/PennPed00039_mask.png",
+      "size_wh": [
+        495,
+        373
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "b91d21480bc58144d174fe35e39fb58ad5bf7a05791276c104aa16e85eed1715",
+      "dhash": "cac8495dded64f4f"
+    },
+    {
+      "image_id": "PennPed00040",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00040.png",
+      "mask": "PedMasks/PennPed00040_mask.png",
+      "size_wh": [
+        406,
+        342
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "f31c2eeb506b5ef89d62a48333f0a1e16657b720848adbec212da2d983734543",
+      "dhash": "39b1b46162626233"
+    },
+    {
+      "image_id": "PennPed00041",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00041.png",
+      "mask": "PedMasks/PennPed00041_mask.png",
+      "size_wh": [
+        570,
+        422
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "286c7676268cc6d2635d099c5fbc0289ed7ac36d4bd0169ef2f4e4f4c26ef841",
+      "dhash": "9323331b485a1a09"
+    },
+    {
+      "image_id": "PennPed00042",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00042.png",
+      "mask": "PedMasks/PennPed00042_mask.png",
+      "size_wh": [
+        569,
+        344
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "55a4ec340720ac18545aa91c8be86958bb87a2898c382230e77fdf33e6cae8ec",
+      "dhash": "1a5e68d4e6fe7d7e"
+    },
+    {
+      "image_id": "PennPed00043",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00043.png",
+      "mask": "PedMasks/PennPed00043_mask.png",
+      "size_wh": [
+        480,
+        356
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "instances": 5,
+      "pixel_sha256": "f7916aa8790851e4c32fee4358264ce53a1ace2e51e139cc27a6f792604b7e24",
+      "dhash": "6c2d0f4c4d4c4e45"
+    },
+    {
+      "image_id": "PennPed00044",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00044.png",
+      "mask": "PedMasks/PennPed00044_mask.png",
+      "size_wh": [
+        483,
+        335
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "instances": 4,
+      "pixel_sha256": "ad79d035bde2f2231feb18957bd9be1d2e38c7527f003af879594273a80a2a72",
+      "dhash": "43d3f373352494cc"
+    },
+    {
+      "image_id": "PennPed00045",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00045.png",
+      "mask": "PedMasks/PennPed00045_mask.png",
+      "size_wh": [
+        692,
+        395
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "instances": 6,
+      "pixel_sha256": "594749d9075b35a206b8a723b9c31e1cd2b330e70af6d597bc1cb4838f5aac6e",
+      "dhash": "024541494c6e6524"
+    },
+    {
+      "image_id": "PennPed00046",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00046.png",
+      "mask": "PedMasks/PennPed00046_mask.png",
+      "size_wh": [
+        534,
+        348
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3
+      ],
+      "instances": 3,
+      "pixel_sha256": "4c8eebbfcf0115dc6de9457e1f8fbf0655c879ab3f4db7c3915aa69c0d10e77d",
+      "dhash": "7134b43431ad4a42"
+    },
+    {
+      "image_id": "PennPed00047",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00047.png",
+      "mask": "PedMasks/PennPed00047_mask.png",
+      "size_wh": [
+        500,
+        346
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3
+      ],
+      "instances": 3,
+      "pixel_sha256": "509ae9ef8d2a55d6cc679a45530b3c6c4b78fce2ca87af1d3a1c6c2a0d3b177b",
+      "dhash": "84d7141467e6d2ba"
+    },
+    {
+      "image_id": "PennPed00048",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00048.png",
+      "mask": "PedMasks/PennPed00048_mask.png",
+      "size_wh": [
+        423,
+        380
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3
+      ],
+      "instances": 3,
+      "pixel_sha256": "1a19cc3a61306fc878428fb7a47be5f378c4f472f6a9d8e565fa559839e31823",
+      "dhash": "2325352445e1c575"
+    },
+    {
+      "image_id": "PennPed00049",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00049.png",
+      "mask": "PedMasks/PennPed00049_mask.png",
+      "size_wh": [
+        452,
+        350
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "instances": 4,
+      "pixel_sha256": "3e064a27136b49dabbf0bd30e1169ff5cfe806b04ddb7ae36b69d5ee7c0a74d1",
+      "dhash": "02ca4b23a3e3eccc"
+    },
+    {
+      "image_id": "PennPed00050",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00050.png",
+      "mask": "PedMasks/PennPed00050_mask.png",
+      "size_wh": [
+        419,
+        315
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "d6909e4b7aca6e5305fe4e13ad61cd4410cc9e84dad510b3f2b399d06e780b78",
+      "dhash": "8fe2f24667deec6d"
+    },
+    {
+      "image_id": "PennPed00051",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00051.png",
+      "mask": "PedMasks/PennPed00051_mask.png",
+      "size_wh": [
+        723,
+        411
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "instances": 4,
+      "pixel_sha256": "de5a8da48f3291d76d5c007e1a85388a612200f6a81f2ea7d46d2001d3c2fd20",
+      "dhash": "b11b7b7d59e09723"
+    },
+    {
+      "image_id": "PennPed00052",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00052.png",
+      "mask": "PedMasks/PennPed00052_mask.png",
+      "size_wh": [
+        682,
+        525
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "instances": 5,
+      "pixel_sha256": "413faddc1a49e65f557e0de37958d369ad4354a5ff4c8c12af14ddcfa82aeacd",
+      "dhash": "667757756d8f99dd"
+    },
+    {
+      "image_id": "PennPed00053",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00053.png",
+      "mask": "PedMasks/PennPed00053_mask.png",
+      "size_wh": [
+        377,
+        344
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "33638532fdda0b850f34967b461939a1d92105b7ee70424ed31a4a9eb77ce440",
+      "dhash": "4f59d85999094380"
+    },
+    {
+      "image_id": "PennPed00054",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00054.png",
+      "mask": "PedMasks/PennPed00054_mask.png",
+      "size_wh": [
+        324,
+        334
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "6bf47f77f21944d38f8da270264856f75294aaaf8a6aa23b1f9ca34bc309e79e",
+      "dhash": "47f3080c83d39345"
+    },
+    {
+      "image_id": "PennPed00055",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00055.png",
+      "mask": "PedMasks/PennPed00055_mask.png",
+      "size_wh": [
+        417,
+        353
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "05bed68e679ce7cfbde805977c89667f64bc1ca206ed6937f3e73d6d8cf20a86",
+      "dhash": "1f3e3f2f37d61613"
+    },
+    {
+      "image_id": "PennPed00056",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00056.png",
+      "mask": "PedMasks/PennPed00056_mask.png",
+      "size_wh": [
+        618,
+        420
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3
+      ],
+      "instances": 3,
+      "pixel_sha256": "cbffccd4b51268d934fca100ec0402630ea76c059f3b5087b6d5cd974dc37889",
+      "dhash": "e6c6b6ccc9096ccc"
+    },
+    {
+      "image_id": "PennPed00057",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00057.png",
+      "mask": "PedMasks/PennPed00057_mask.png",
+      "size_wh": [
+        371,
+        364
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "9324c68a66d7bd4fdad3cabaa2821f8edd0f13f4b8e7bb6630ee67cea7840740",
+      "dhash": "1b1f5ac848f6b913"
+    },
+    {
+      "image_id": "PennPed00058",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00058.png",
+      "mask": "PedMasks/PennPed00058_mask.png",
+      "size_wh": [
+        509,
+        380
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "instances": 4,
+      "pixel_sha256": "4eccd6e6dd7f983eb71b6313a1087d5ebd903d530735b00847fa3f66f1b93049",
+      "dhash": "696625d470686b23"
+    },
+    {
+      "image_id": "PennPed00059",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00059.png",
+      "mask": "PedMasks/PennPed00059_mask.png",
+      "size_wh": [
+        582,
+        362
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "9cd7e0e049250d52882d3affd44678322a0db796180717897854f684cc73dd85",
+      "dhash": "a13b6b7bd5dc9dd6"
+    },
+    {
+      "image_id": "PennPed00060",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00060.png",
+      "mask": "PedMasks/PennPed00060_mask.png",
+      "size_wh": [
+        505,
+        351
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "instances": 5,
+      "pixel_sha256": "ce1d20868eabf78737cecf4f190c5513ae830aaa3258b6ae99d0a595a6448768",
+      "dhash": "3d31513bdb5351f5"
+    },
+    {
+      "image_id": "PennPed00061",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00061.png",
+      "mask": "PedMasks/PennPed00061_mask.png",
+      "size_wh": [
+        314,
+        320
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "e29009b6b8d418e68a290d72f1054100233211d09fdcf812e505f109c2624096",
+      "dhash": "3260c9139cac4c05"
+    },
+    {
+      "image_id": "PennPed00062",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00062.png",
+      "mask": "PedMasks/PennPed00062_mask.png",
+      "size_wh": [
+        396,
+        315
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "instances": 4,
+      "pixel_sha256": "4833af2b66723e5a19acc82aa9184842ccc54a7af9bba34904ffcc9f76a13222",
+      "dhash": "19d2c665e1a9d8c0"
+    },
+    {
+      "image_id": "PennPed00063",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00063.png",
+      "mask": "PedMasks/PennPed00063_mask.png",
+      "size_wh": [
+        427,
+        350
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "402cf98aeebedb434e40cbbe8d786bf5abbf3a0aab767d5ae7af9d6c54973bc4",
+      "dhash": "4b9ab8898d094c48"
+    },
+    {
+      "image_id": "PennPed00064",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00064.png",
+      "mask": "PedMasks/PennPed00064_mask.png",
+      "size_wh": [
+        370,
+        322
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "3de0168c704cb809255d4c1502a832c0239976407e6eb9f160788a2c40cba44f",
+      "dhash": "79756a296d622258"
+    },
+    {
+      "image_id": "PennPed00065",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00065.png",
+      "mask": "PedMasks/PennPed00065_mask.png",
+      "size_wh": [
+        324,
+        318
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "dfc9eaf9bfde55acb7a2b10b916f46cc37a190c0a8b7091becdaaa748561c65d",
+      "dhash": "3373a606767634c1"
+    },
+    {
+      "image_id": "PennPed00066",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00066.png",
+      "mask": "PedMasks/PennPed00066_mask.png",
+      "size_wh": [
+        428,
+        375
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3
+      ],
+      "instances": 3,
+      "pixel_sha256": "1a1ea615011c24f69abde3b99f74b2d2155844f1bb0df2156e1e76edd610fe36",
+      "dhash": "3251796c9c5c2440"
+    },
+    {
+      "image_id": "PennPed00067",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00067.png",
+      "mask": "PedMasks/PennPed00067_mask.png",
+      "size_wh": [
+        370,
+        318
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "255b661e2add122e3d13f67d9ce29ec62cf098e568e4f50e6981799f784854a0",
+      "dhash": "25d8d929b8b86863"
+    },
+    {
+      "image_id": "PennPed00068",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00068.png",
+      "mask": "PedMasks/PennPed00068_mask.png",
+      "size_wh": [
+        603,
+        387
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "instances": 4,
+      "pixel_sha256": "d4b435ba3ce100c6cabffcd293566c6f520efb5b47780e83374502b34a0e234d",
+      "dhash": "6d69d0ad79dcf63e"
+    },
+    {
+      "image_id": "PennPed00069",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00069.png",
+      "mask": "PedMasks/PennPed00069_mask.png",
+      "size_wh": [
+        388,
+        345
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "c781536aefa70f39d330db7b0c7f3f3caafc8aca352465a70296d1bdc58380d6",
+      "dhash": "cbf3b5b4a363ef67"
+    },
+    {
+      "image_id": "PennPed00070",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00070.png",
+      "mask": "PedMasks/PennPed00070_mask.png",
+      "size_wh": [
+        466,
+        354
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "188aac6e9271ae69eec7fcc4d02c3c7c3fb9609ddb7da8f60184d6f8e87230fa",
+      "dhash": "cee9fd7569e1b5cf"
+    },
+    {
+      "image_id": "PennPed00071",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00071.png",
+      "mask": "PedMasks/PennPed00071_mask.png",
+      "size_wh": [
+        767,
+        379
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "instances": 6,
+      "pixel_sha256": "dbb1a4c34c369ee340bfe3bd3996508e072019c207974e6f9b71d48b7c86bc04",
+      "dhash": "703404ad2575652d"
+    },
+    {
+      "image_id": "PennPed00072",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00072.png",
+      "mask": "PedMasks/PennPed00072_mask.png",
+      "size_wh": [
+        473,
+        348
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "01d69c6c3dd061c2c818714db10db00759b1760838ec87b32b1d60994567e196",
+      "dhash": "3c299edeca52939a"
+    },
+    {
+      "image_id": "PennPed00073",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00073.png",
+      "mask": "PedMasks/PennPed00073_mask.png",
+      "size_wh": [
+        579,
+        364
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3
+      ],
+      "instances": 3,
+      "pixel_sha256": "f8f8af2a4408c208e6f1755c0ef7c4b8d73587341d4d7383a2406ffbd5f3dfea",
+      "dhash": "5314cfdf9b1bcdc8"
+    },
+    {
+      "image_id": "PennPed00074",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00074.png",
+      "mask": "PedMasks/PennPed00074_mask.png",
+      "size_wh": [
+        442,
+        332
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3
+      ],
+      "instances": 3,
+      "pixel_sha256": "b4ead9ef05abd69dfdf5669f96d882475ce4371c7c5a5db6de405f7e25527519",
+      "dhash": "b9a6243474343508"
+    },
+    {
+      "image_id": "PennPed00075",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00075.png",
+      "mask": "PedMasks/PennPed00075_mask.png",
+      "size_wh": [
+        368,
+        322
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "114f0e9260af57ca5614d742f7b6bead742801d17d4a9327f588674ec8f5ead9",
+      "dhash": "5cacbc82c2ca8cac"
+    },
+    {
+      "image_id": "PennPed00076",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00076.png",
+      "mask": "PedMasks/PennPed00076_mask.png",
+      "size_wh": [
+        342,
+        348
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "97e7da2e0566a00f2147ade77bffb64c2e8cc766f2724a1619f2a4a6970e4fd0",
+      "dhash": "57cb2430a12ba391"
+    },
+    {
+      "image_id": "PennPed00077",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00077.png",
+      "mask": "PedMasks/PennPed00077_mask.png",
+      "size_wh": [
+        352,
+        323
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "457ac120ea136365d0ecbb9e35b0c6b4c606480c21e8b4ab3cb9f143a89be124",
+      "dhash": "e9181b1b52161212"
+    },
+    {
+      "image_id": "PennPed00078",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00078.png",
+      "mask": "PedMasks/PennPed00078_mask.png",
+      "size_wh": [
+        349,
+        372
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "9589244889b58b95e60bd39e40506d196986b35b2efd0d485b913d98d24d0ef5",
+      "dhash": "1918591971393938"
+    },
+    {
+      "image_id": "PennPed00079",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00079.png",
+      "mask": "PedMasks/PennPed00079_mask.png",
+      "size_wh": [
+        357,
+        337
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "f5e799e59c0fb7f66a4529a65b484c35ae0f1c2a7cecc5724c3d5e8e715c1631",
+      "dhash": "ae2bf375d5c1c1c5"
+    },
+    {
+      "image_id": "PennPed00080",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00080.png",
+      "mask": "PedMasks/PennPed00080_mask.png",
+      "size_wh": [
+        435,
+        361
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3
+      ],
+      "instances": 3,
+      "pixel_sha256": "0dc1b05358ee4c6e9db654be9c79def60ad231bd1c0fcd2dc02eaa4d32a169e0",
+      "dhash": "cb9b145c596965e3"
+    },
+    {
+      "image_id": "PennPed00081",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00081.png",
+      "mask": "PedMasks/PennPed00081_mask.png",
+      "size_wh": [
+        561,
+        387
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3
+      ],
+      "instances": 3,
+      "pixel_sha256": "4cac09401410e9b49fdd5978e2a7a05f7691dc2c8b019269c663d488b4bcde5f",
+      "dhash": "abb6b4bdc8d072ec"
+    },
+    {
+      "image_id": "PennPed00082",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00082.png",
+      "mask": "PedMasks/PennPed00082_mask.png",
+      "size_wh": [
+        398,
+        321
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "b12f12a1bcb39f0c6183bdc621275517f68487023824ea219bc385d33f6142f1",
+      "dhash": "4baa27e7e6e4e5cd"
+    },
+    {
+      "image_id": "PennPed00083",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00083.png",
+      "mask": "PedMasks/PennPed00083_mask.png",
+      "size_wh": [
+        371,
+        341
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "cd35ff15b5c14a07c3b815fa94e5b39a15f43a7e9a29e7f33ec180c5daa8c358",
+      "dhash": "0397cf4d4dcd0517"
+    },
+    {
+      "image_id": "PennPed00084",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00084.png",
+      "mask": "PedMasks/PennPed00084_mask.png",
+      "size_wh": [
+        370,
+        356
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3
+      ],
+      "instances": 3,
+      "pixel_sha256": "d7aa011ae2905fec17f9041173ab4c7dd92b115773cfdf9a69ab412391bbaa03",
+      "dhash": "6d2d191e9e9e5274"
+    },
+    {
+      "image_id": "PennPed00085",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00085.png",
+      "mask": "PedMasks/PennPed00085_mask.png",
+      "size_wh": [
+        403,
+        341
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "e48502b0fbb616d4973a6bccac7ffd065cce74565975f4f8f18b73e09b32609f",
+      "dhash": "b92d76ded3e36652"
+    },
+    {
+      "image_id": "PennPed00086",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00086.png",
+      "mask": "PedMasks/PennPed00086_mask.png",
+      "size_wh": [
+        474,
+        354
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "instances": 5,
+      "pixel_sha256": "4d3dc54a6ed40da4c91f98e6e7c2e669741a59c365380dfd75d3b70a381c6ca4",
+      "dhash": "276bea23a2a26b39"
+    },
+    {
+      "image_id": "PennPed00087",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00087.png",
+      "mask": "PedMasks/PennPed00087_mask.png",
+      "size_wh": [
+        325,
+        343
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "c2ada193e436027333b0274e6f00bd1e57bc5fedaaa18bc28cf05bf8d1fc5c27",
+      "dhash": "43499bd34362e065"
+    },
+    {
+      "image_id": "PennPed00088",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00088.png",
+      "mask": "PedMasks/PennPed00088_mask.png",
+      "size_wh": [
+        375,
+        320
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "d74b8005d725cb1c67a81a90e0c0ebbb513170ce4c73b86b7044a5d2c2cd228b",
+      "dhash": "9a2eac99c1c9d9e1"
+    },
+    {
+      "image_id": "PennPed00089",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00089.png",
+      "mask": "PedMasks/PennPed00089_mask.png",
+      "size_wh": [
+        428,
+        317
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "52d1014d20da32439340de60894b848e5c93bb583c5d64ada7b2cfd6abe94589",
+      "dhash": "9e1b53329c1cb468"
+    },
+    {
+      "image_id": "PennPed00090",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00090.png",
+      "mask": "PedMasks/PennPed00090_mask.png",
+      "size_wh": [
+        500,
+        370
+      ],
+      "instance_ids": [
+        1,
+        2,
+        3
+      ],
+      "instances": 3,
+      "pixel_sha256": "042755ae7d74d2a8807f53cd13e4de0f9b760b11875e201f1a48730cd77dc016",
+      "dhash": "052169b193193933"
+    },
+    {
+      "image_id": "PennPed00091",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00091.png",
+      "mask": "PedMasks/PennPed00091_mask.png",
+      "size_wh": [
+        372,
+        324
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "5fbf44a800dbda723e0bbb61e3d6dfe27a06cdcadf7a3e548c7552f37d61cb4b",
+      "dhash": "5c6332ab6d2c7c6c"
+    },
+    {
+      "image_id": "PennPed00092",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00092.png",
+      "mask": "PedMasks/PennPed00092_mask.png",
+      "size_wh": [
+        600,
+        447
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "6a2f5ad1f441bdaed36daf5f68aa586c92b0347241675daef4b41b0ec2992771",
+      "dhash": "c8d0fd9de6e3f2e6"
+    },
+    {
+      "image_id": "PennPed00093",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00093.png",
+      "mask": "PedMasks/PennPed00093_mask.png",
+      "size_wh": [
+        368,
+        311
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "a458403c12e5a9b1fd17740fdfbedacaf15e36c3214ed6c77ae47b4f04ef5370",
+      "dhash": "1b0b9bc64668e8e4"
+    },
+    {
+      "image_id": "PennPed00094",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00094.png",
+      "mask": "PedMasks/PennPed00094_mask.png",
+      "size_wh": [
+        422,
+        349
+      ],
+      "instance_ids": [
+        1
+      ],
+      "instances": 1,
+      "pixel_sha256": "16f70b0a62489660dffd6fbdb8cc1ecffb6850bb0f37ee23a838e89f96035cf0",
+      "dhash": "596db671b5313938"
+    },
+    {
+      "image_id": "PennPed00095",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00095.png",
+      "mask": "PedMasks/PennPed00095_mask.png",
+      "size_wh": [
+        512,
+        375
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "f093f55174a0b828242d33f3dd78aaf3ef85de0c59e6e822d22473f4bb9f338b",
+      "dhash": "3e680d0b4aca8ab9"
+    },
+    {
+      "image_id": "PennPed00096",
+      "source": "Penn",
+      "image": "PNGImages/PennPed00096.png",
+      "mask": "PedMasks/PennPed00096_mask.png",
+      "size_wh": [
+        294,
+        331
+      ],
+      "instance_ids": [
+        1,
+        2
+      ],
+      "instances": 2,
+      "pixel_sha256": "3869727556dd2059dfcca92bbb997cc6cd06df44f53236de93afe5807e14d460",
+      "dhash": "8dcd5cd9e6f6b215"
+    }
+  ]
+}

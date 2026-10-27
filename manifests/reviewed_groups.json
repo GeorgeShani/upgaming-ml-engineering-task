@@ -1,0 +1,18 @@
+{
+  "description": "Conservatively group visually related photographs seen during contact-sheet review. Groups are not an exhaustive identity or scene audit.",
+  "groups": [
+    ["FudanPed00006", "FudanPed00008"],
+    ["FudanPed00044", "FudanPed00045"],
+    ["FudanPed00046", "FudanPed00047"],
+    ["FudanPed00059", "FudanPed00060"],
+    ["PennPed00011", "PennPed00012"],
+    ["PennPed00013", "PennPed00014"],
+    ["PennPed00020", "PennPed00021", "PennPed00022"],
+    ["PennPed00025", "PennPed00026", "PennPed00031", "PennPed00032", "PennPed00034", "PennPed00035", "PennPed00036"],
+    ["PennPed00037", "PennPed00038", "PennPed00039", "PennPed00040", "PennPed00041"],
+    ["PennPed00069", "PennPed00070"],
+    ["PennPed00073", "PennPed00074", "PennPed00075", "PennPed00076", "PennPed00077", "PennPed00078"],
+    ["PennPed00082", "PennPed00083", "PennPed00084", "PennPed00085"],
+    ["PennPed00095", "PennPed00096"]
+  ]
+}
