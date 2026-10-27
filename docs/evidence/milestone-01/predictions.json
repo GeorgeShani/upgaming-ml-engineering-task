@@ -1,0 +1,43 @@
+{
+  "image": "data/person1.jpg",
+  "image_sha256": "a5fff88c6b4a378657cd763c788053ca084f093d9a67d05c93172536881d4de5",
+  "image_size_wh": [
+    480,
+    640
+  ],
+  "tensor_shape_chw": [
+    3,
+    640,
+    480
+  ],
+  "tensor_dtype": "torch.float32",
+  "tensor_range": [
+    0.0,
+    1.0
+  ],
+  "model": "fasterrcnn_mobilenet_v3_large_320_fpn",
+  "weights": "COCO_V1",
+  "device": "cpu",
+  "cpu_threads": 4,
+  "torch": "2.9.1+cpu",
+  "torchvision": "0.24.1+cpu",
+  "threshold": 0.5,
+  "count": 1,
+  "predictions": {
+    "boxes": [
+      [
+        125.60780334472656,
+        177.9407958984375,
+        326.17523193359375,
+        569.852783203125
+      ]
+    ],
+    "labels": [
+      1
+    ],
+    "scores": [
+      0.9992049336433411
+    ]
+  },
+  "note": "Pretrained smoke prediction; no fine-tuning or accuracy measurement."
+}

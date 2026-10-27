@@ -1,0 +1,21 @@
+{
+  "python": "3.12.13",
+  "platform": "Windows",
+  "architecture": "AMD64",
+  "device": "cpu",
+  "packages": {
+    "torch": "2.9.1+cpu",
+    "torchvision": "0.24.1+cpu",
+    "torchmetrics": "1.8.2",
+    "pycocotools": "2.0.10",
+    "pillow": "12.0.0",
+    "numpy": "2.5.4"
+  },
+  "nms_kept_indices": [
+    0,
+    2
+  ],
+  "known_answer_map": 1.0,
+  "known_answer_ap50": 1.0,
+  "note": "Synthetic dependency checks; these are not dataset evaluation results."
+}
