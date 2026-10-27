@@ -422,3 +422,112 @@ questions: **pending**. AI-run tests and visual review do not fill these fields.
 Next: experiment B changes only the planned horizontal-flip augmentation;
 preserve the same split, model initialization, and training budget for a useful
 comparison. Optimization and the held-out test are separate later steps.
+
+## Slices 5–6: augmentation and resolution optimization
+
+### Why a horizontal flip changes both image and box
+
+Augmentation creates a modified training example to expose the model to more
+variation. For experiment B, each training image is flipped horizontally with
+probability 0.5. Validation images are never augmented.
+
+Suppose an image is 10 pixels wide and an annotated box is `[2, 0, 5, 2]`.
+Using the project's half-open box coordinates, the flipped box is `[5, 0, 8, 2]`:
+
+```text
+new_left  = image_width - old_right = 10 - 5 = 5
+new_right = image_width - old_left  = 10 - 2 = 8
+```
+
+The top and bottom coordinates and person label remain the same. Flipping only
+the pixels would leave the annotation on the wrong side of the image. A targeted
+test checks both pixels and boxes and verifies that the input is not mutated.
+
+A separate seeded random generator chooses flips, so those choices do not consume
+the global generator used by model training. A and B use the same model seed,
+training IDs, shuffle seed, architecture, optimizer, batch size, and epoch budget.
+The five-step diagnostic uses unaugmented images in both cases, then training
+restarts from the pretrained weights. Separate random generators make the setup
+easier to compare; different image content can still change training behavior.
+
+### Why test a smaller inference resolution?
+
+The selected trained checkpoint is evaluated at the standard 320/640 resize and
+at 256/512, with the same validation images, model weights, score floor, and CPU
+settings. A smaller image may need less computation but can make small pedestrians
+harder to detect. This is a hypothesis to measure, not a guaranteed speedup.
+
+Timing uses five warm-ups followed by 30 predictions across ten fixed validation
+images, five from each dataset source. It measures the model call on already
+loaded CPU tensors, including internal resize and post-processing. File loading
+and visualization are excluded. The median is the middle latency; p95 is the
+nearest-rank 95th percentile. The weights file is unchanged by resizing.
+
+We use the reduced setting only if its median is faster and its validation mAP
+decreases by no more than 0.02 absolute. A single measurement run on one laptop
+can vary with operating-system load and does not predict deployment performance
+on other hardware. The test split remains held out.
+
+### Experiment B: actual result
+
+AI ran B on the full 102-image training split for three epochs, batch size 2,
+seed 42, CPU, four threads. The unaugmented tiny-check losses matched A's
+recorded diagnostic exactly; this is a useful check of the common setup, though
+we did not save A's actual initial model-state hash for a bytewise comparison.
+The optimizer checks the recorded A/B configurations and checkpoint metadata
+before selecting a model.
+
+| Validation run | Best epoch | mAP 0.50:0.95 | AP50 | Precision at 0.5 | Recall at 0.5 |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| E0 pretrained | — | 0.6912 | 0.9338 | 0.7019 | 0.9481 |
+| A, no augmentation | 3 | 0.6549 | 0.9164 | 0.8861 | 0.9091 |
+| B, random horizontal flip | 3 | 0.6752 | 0.9186 | 0.8974 | 0.9091 |
+
+B's epoch mAP values were 0.6120, 0.6283, and 0.6752. Mean summed training
+losses were approximately 0.4425, 0.3788, and 0.4531. The epoch loop took about
+387 seconds on this laptop. A's earlier run took about 135 seconds, but those
+were separate runs under uncontrolled machine conditions; do not treat their
+elapsed times as a controlled training-speed comparison.
+
+B was selected over A by validation mAP. E0 remained higher than both trained
+runs. This is one run per experiment on a small validation set, so the observed
+difference does not establish that flipping will always improve generalization.
+The selected B checkpoint is local at `runs/experiment-b/best.pt`; SHA256:
+`4c2f1e05ca76cb06294e4f37e2b9bc6ae504bcb02da965b411603d4b9ea44c90`.
+Its saved epoch-3 validation metrics were reproduced after reloading.
+
+### Resolution comparison: actual result
+
+The same B checkpoint, 34-image validation split, score floor 0.001, and four
+CPU threads were used for both settings. The timing sample contained ten fixed
+validation images, each measured three times after five warm-ups. This was one
+run on the Intel Core i5-1335U laptop; CPU load and thermal state can affect it.
+
+| Inference resize | mAP 0.50:0.95 | AP50 | AP75 | Median | p95 |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| 320/640 | 0.6752 | 0.9186 | 0.7919 | 315.3 ms | 484.0 ms |
+| 256/512 | 0.6191 | 0.9292 | 0.7344 | 255.6 ms | 421.2 ms |
+
+The reduced setting's median was about 18.9% faster, but mAP fell by about
+0.0561 (5.61 percentage points), exceeding our allowed 0.02 absolute drop. We
+therefore kept 320/640. AP50 rose while AP75 and averaged mAP fell; looking at
+one IoU threshold alone would have missed the broader localization trade-off.
+This is an optimization attempt, not a claim that the selected configuration is
+universally fastest. The checkpoint weights and file size did not change.
+
+Recorded summaries: `docs/evidence/experiments/experiment-b.json` and
+`docs/evidence/experiments/optimization.json`. The latter includes each timing
+sample and image ID; no dataset photographs are committed. The selected
+checkpoint and resize are recorded in `manifests/selected-model.json`.
+
+### George's verification (pending)
+
+- [ ] For image width 10, flip box `[1, 2, 4, 7]` and explain each new x value.
+- [ ] Explain why changing only the image pixels would corrupt the labels.
+- [ ] Explain why B was selected over A even though E0's validation mAP is higher.
+- [ ] Explain why 256/512 was rejected although it reduced median latency.
+- [ ] Run the README's prediction with the selected checkpoint; record actual
+  commands and observations without claiming that AI's checks were your own.
+
+George's observations and independent code change: **pending**. Next: build the
+local application, then freeze decisions and evaluate the held-out test split.

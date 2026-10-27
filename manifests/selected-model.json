@@ -1,0 +1,10 @@
+{
+  "experiment": "B",
+  "checkpoint": "runs/experiment-b/best.pt",
+  "checkpoint_sha256": "4c2f1e05ca76cb06294e4f37e2b9bc6ae504bcb02da965b411603d4b9ea44c90",
+  "selected_epoch": 3,
+  "min_size": 320,
+  "max_size": 640,
+  "validation_map": 0.6751994490623474,
+  "evidence": "docs/evidence/experiments/optimization.json"
+}

@@ -55,3 +55,11 @@ model state was checked before and after to verify the weights did not change.
 Results and times are measured, not fabricated. George's independent review,
 explanation, and code modification remain pending. The held-out test split was
 not evaluated for these steps.
+
+## Experiment B and optimization
+
+AI implemented and tested joint image/box flipping, ran the three-epoch B
+experiment, checked A/B settings, selected the best trained checkpoint, and
+measured the two resize settings. AI recorded the actual samples, decision,
+model checksum, and limitations; the test split was not used. George's own
+explanations, verification, and independent code change remain pending.

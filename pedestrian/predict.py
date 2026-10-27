@@ -20,11 +20,17 @@ def main(argv=None):
     parser.add_argument("--checkpoint", type=Path, help="Trained checkpoint; omit for COCO weights")
     parser.add_argument("--threshold", type=float, default=0.5)
     parser.add_argument("--threads", type=int, default=4)
+    parser.add_argument("--min-size", type=int, help="Override model's shorter-edge resize")
+    parser.add_argument("--max-size", type=int, help="Override model's longer-edge limit")
     args = parser.parse_args(argv)
     if not 0 <= args.threshold <= 1:
         parser.error("--threshold must be between 0 and 1")
     if args.threads < 1:
         parser.error("--threads must be a positive integer")
+    if (args.min_size is None) != (args.max_size is None):
+        parser.error("--min-size and --max-size must be provided together")
+    if args.min_size is not None and (args.min_size < 1 or args.max_size < args.min_size):
+        parser.error("Resize values must be positive and max-size must be at least min-size")
     try:
         with Image.open(args.image) as source:
             image = ImageOps.exif_transpose(source).convert("RGB")
@@ -46,6 +52,9 @@ def main(argv=None):
         model = load_pretrained_detector()
         weights_name = WEIGHTS.name
         checkpoint_hash = None
+    if args.min_size is not None:
+        model.transform.min_size = (args.min_size,)
+        model.transform.max_size = args.max_size
     result = predict(image, model, threshold=args.threshold)
 
     annotated = image.copy()
@@ -65,6 +74,11 @@ def main(argv=None):
         "model": MODEL_NAME,
         "weights": weights_name,
         "checkpoint_sha256": checkpoint_hash,
+        "resize_override": (
+            {"min_size": args.min_size, "max_size": args.max_size}
+            if args.min_size is not None
+            else None
+        ),
         "device": "cpu",
         "cpu_threads": args.threads,
         "torch": torch.__version__,

@@ -106,3 +106,24 @@ def test_cli_records_when_trained_checkpoint_is_used(tmp_path, monkeypatch):
     result = json.loads((output / "predictions.json").read_text(encoding="utf-8"))
     assert result["weights"] == "trained_checkpoint"
     assert len(result["checkpoint_sha256"]) == 64
+
+
+def test_cli_applies_and_records_resize_override(tmp_path, monkeypatch):
+    import json
+    from types import SimpleNamespace
+
+    from pedestrian import predict as cli
+
+    image = tmp_path / "image.png"
+    output = tmp_path / "results"
+    Image.new("RGB", (12, 8)).save(image)
+    detector = FixedDetector()
+    detector.transform = SimpleNamespace(min_size=(320,), max_size=640)
+    monkeypatch.setattr(cli, "load_pretrained_detector", lambda: detector)
+    cli.main(
+        ["--image", str(image), "--output", str(output), "--min-size", "256", "--max-size", "512"]
+    )
+    result = json.loads((output / "predictions.json").read_text(encoding="utf-8"))
+    assert result["resize_override"] == {"min_size": 256, "max_size": 512}
+    assert detector.transform.min_size == (256,)
+    assert detector.transform.max_size == 512

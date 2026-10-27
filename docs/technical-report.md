@@ -2,8 +2,8 @@
 
 ## Current status
 
-The dataset audit and split are complete. The pretrained E0 validation baseline
-and fine-tuning experiment A have been run. Experiment B, optimization, and the
+The dataset audit and split, pretrained E0 baseline, fine-tuning experiments A/B,
+and a resolution optimization attempt are complete. The final application and
 held-out test remain pending.
 Single-image predictions are smoke checks, not evidence of model accuracy.
 
@@ -59,6 +59,7 @@ image before COCO's metric limits. Counts use confidence 0.5 and IoU 0.5.
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
 | E0: pretrained | 0.6912 | 0.9338 | 73 | 31 | 4 | 0.7019 | 0.9481 |
 | A: best epoch 3 | 0.6549 | 0.9164 | 70 | 9 | 7 | 0.8861 | 0.9091 |
+| B: best epoch 3 | 0.6752 | 0.9186 | 70 | 8 | 7 | 0.8974 | 0.9091 |
 
 At this reporting threshold A produced fewer unmatched predictions but missed
 more annotations; its mAP was lower. These are validation measurements on a
@@ -77,15 +78,31 @@ checkpoint reproduced its saved validation metrics after offline reload. Full
 numeric evidence is in `docs/evidence/experiments/`; dataset visualizations and
 checkpoint files stay local. The exact retraining command is in the README.
 
-Experiment B, optimization, and held-out test results remain pending.
+Experiment B differed from A only by random horizontal training-image flips
+with probability 0.5; the associated boxes were flipped jointly. B used the
+same recorded split, seed, initialization procedure, optimizer, and training
+budget. It outperformed A in this single validation run, while E0 remained higher.
+The selected trained checkpoint is B, epoch 3.
+
+### Resolution optimization
+
+On the same B checkpoint and validation split, standard resize 320/640 had mAP
+0.6752, median 315.3 ms, and p95 484.0 ms. Reduced resize 256/512 had mAP
+0.6191, median 255.6 ms, and p95 421.2 ms. Timings cover model calls on ten
+preloaded CPU tensors, 30 predictions after five warm-ups, with four threads on
+the i5-1335U laptop. The reduced setting was about 18.9% faster at the median,
+but its 0.0561 absolute mAP loss exceeded the 0.02 limit; retain 320/640.
+The weights file size does not change. The benchmark is a single local run.
+
+The held-out test and final application remain pending.
 
 ## Known limitations and next improvements
 
 The project-trained checkpoint exists locally but is not yet published; it does
 not include optimizer state for exact training resumption. The validation set is
 small, annotations are incomplete in some scenes, and the
-dataset lacks person-free images. Next: experiment B, then optimization and a
-frozen-decision test. See the journal for evidence
+dataset lacks person-free images. Next: build the app, freeze decisions, and
+evaluate the held-out test. See the journal for evidence
 and the implementation plan for the acceptance criteria.
 
 ## Primary references

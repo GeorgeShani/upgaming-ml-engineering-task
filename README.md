@@ -4,8 +4,8 @@ A CPU-first computer vision project implemented one milestone at a time.
 The full assignment includes data preparation, fine-tuning, evaluation, an
 optimization attempt, and a local Streamlit demonstration.
 
-**Current scope: validation baseline and fine-tuning experiment A.** Experiment
-B, optimization, the final held-out test, and Streamlit remain upcoming. See
+**Current scope: validation experiments A/B and resolution optimization.** The
+final held-out test and Streamlit remain upcoming. See
 [the schedule](docs/implementation-plan.md) and the learning journal.
 
 ## Set up on Windows
@@ -111,6 +111,27 @@ configuration. Loading it does not download pretrained weights. Checkpoints,
 dataset imagery, and side-by-side reviews are gitignored; run instructions
 recreate them. Numerical summaries are committed under `docs/evidence/experiments/`.
 
+## Experiment B and resolution comparison
+
+Experiment B uses the same settings as A, plus horizontal flips on training
+images. After reproducing A, run B and the comparison into new output paths:
+
+```powershell
+uv run --locked python -m pedestrian.train --dataset-root data/PennFudanPed --experiment B --output runs/experiment-b-repro
+uv run --locked python -m pedestrian.optimize --dataset-root data/PennFudanPed --run-a runs/experiment-a-repro --run-b runs/experiment-b-repro --output runs/optimization-repro/validation.json
+```
+
+The recorded run selected experiment B at 320/640; see
+`manifests/selected-model.json`. To use the current local checkpoint:
+
+```powershell
+uv run --locked python -m pedestrian.predict --image data/person1.jpg --checkpoint runs/experiment-b/best.pt --min-size 320 --max-size 640 --output runs/selected-example
+```
+
+The original checkpoint is local and ignored by Git. A retrained checkpoint may
+have a different checksum; re-run model selection after retraining rather than
+assuming the recorded checkpoint identity or benchmark will be identical.
+
 `pedestrian/model.py` loads the detector; `inference.py` prepares images and
 filters predictions; `predict.py` handles CLI input and saved outputs.
 `check_environment.py` checks native detection and evaluation dependencies.
@@ -119,7 +140,7 @@ filters predictions; `predict.py` handles CLI input and saved outputs.
 ## Limits and troubleshooting
 
 The default prediction command uses the original COCO-trained detector. Pass
-`--checkpoint` to use the locally trained experiment A model.
+`--checkpoint` to use a locally trained model.
 The confidence score is not a calibrated probability. One sample prediction
 does not establish accuracy, generalization, or production readiness.
 
