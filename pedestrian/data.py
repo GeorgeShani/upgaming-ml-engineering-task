@@ -3,6 +3,7 @@
 import json
 from pathlib import Path
 
+import torch
 from PIL import Image
 from torch.utils.data import Dataset
 
@@ -10,9 +11,33 @@ from pedestrian.annotations import extract_instances
 from pedestrian.inference import prepare_image
 
 
+def horizontal_flip(image, target):
+    """Flip an image and its half-open xyxy boxes without changing the input."""
+    width = image.shape[-1]
+    boxes = target["boxes"].clone()
+    left = boxes[:, 0].clone()
+    boxes[:, 0] = width - boxes[:, 2]
+    boxes[:, 2] = width - left
+    return image.flip(-1), {**target, "boxes": boxes}
+
+
 class PennFudanDataset(Dataset):
-    def __init__(self, root: Path, manifest: Path, split: str, image_ids=None):
+    def __init__(
+        self,
+        root: Path,
+        manifest: Path,
+        split: str,
+        image_ids=None,
+        flip_probability: float = 0.0,
+        augmentation_seed: int = 43,
+    ):
         self.root = Path(root)
+        if not 0 <= flip_probability <= 1:
+            raise ValueError("Flip probability must be between 0 and 1")
+        if split != "train" and flip_probability:
+            raise ValueError("Augmentation is allowed on training data only")
+        self.flip_probability = flip_probability
+        self.augmentation_generator = torch.Generator().manual_seed(augmentation_seed)
         splits = json.loads(Path(manifest).read_text(encoding="utf-8"))["splits"]
         if split not in splits:
             raise ValueError(f"Unknown split: {split}")
@@ -34,7 +59,13 @@ class PennFudanDataset(Dataset):
             if tuple(tensor.shape[-2:]) != (mask.height, mask.width):
                 raise ValueError(f"Image and mask dimensions differ for {image_id}")
             annotation = extract_instances(mask)
-        return tensor, {"boxes": annotation["boxes"], "labels": annotation["labels"]}, image_id
+        target = {"boxes": annotation["boxes"], "labels": annotation["labels"]}
+        if (
+            self.flip_probability
+            and torch.rand((), generator=self.augmentation_generator).item() < self.flip_probability
+        ):
+            tensor, target = horizontal_flip(tensor, target)
+        return tensor, target, image_id
 
 
 def collate_detection(batch):

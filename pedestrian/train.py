@@ -131,11 +131,20 @@ def main():
     parser.add_argument("--epochs", type=int, default=3)
     parser.add_argument("--batch-size", type=int, default=2)
     parser.add_argument("--threads", type=int, default=4)
+    parser.add_argument("--experiment", choices=("A", "B"), default="A")
     args = parser.parse_args()
     if min(args.epochs, args.batch_size, args.threads) < 1:
         parser.error("epochs, batch size, and threads must be positive")
     torch.set_num_threads(args.threads)
-    train = PennFudanDataset(args.dataset_root, args.manifest, "train")
+    flip_probability = 0.5 if args.experiment == "B" else 0.0
+    train = PennFudanDataset(
+        args.dataset_root,
+        args.manifest,
+        "train",
+        flip_probability=flip_probability,
+        augmentation_seed=args.seed + 1,
+    )
+    diagnostic_train = PennFudanDataset(args.dataset_root, args.manifest, "train")
     validation = PennFudanDataset(args.dataset_root, args.manifest, "validation")
     if len(train) < 2:
         parser.error("Training split needs at least two images for the diagnostic")
@@ -145,7 +154,7 @@ def main():
     ):
         parser.error("Output already contains an experiment; choose a new output directory")
     args.output.mkdir(parents=True, exist_ok=True)
-    tiny = tiny_learning_check(train, args.seed)
+    tiny = tiny_learning_check(diagnostic_train, args.seed)
     (args.output / "tiny-check.json").write_text(
         json.dumps(tiny, indent=2) + "\n", encoding="utf-8"
     )
@@ -166,7 +175,7 @@ def main():
         collate_fn=collate_detection,
     )
     config = {
-        "experiment": "A",
+        "experiment": args.experiment,
         "architecture": MODEL_NAME,
         "initial_weights": "COCO_V1",
         "classes": {"background": 0, "person": 1},
@@ -177,7 +186,8 @@ def main():
         "momentum": 0.9,
         "weight_decay": 0.0005,
         "threads": args.threads,
-        "augmentation": "none",
+        "augmentation": "horizontal_flip(p=0.5)" if flip_probability else "none",
+        "augmentation_seed": args.seed + 1 if flip_probability else None,
         "frozen": "entire backbone including FPN",
         "train_image_ids": train.image_ids,
         "manifest_sha256": hashlib.sha256(args.manifest.read_bytes()).hexdigest(),
