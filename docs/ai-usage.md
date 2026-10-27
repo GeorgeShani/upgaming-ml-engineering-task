@@ -77,3 +77,8 @@ demo, review, explanation, and independent code change remain pending.
 AI's first held-out preflight failed before any test images or metrics were
 processed because selection and checkpoint metadata were confused. AI fixed the
 check, added a regression test, and recorded a revised freeze before the run.
+
+AI ran the corrected frozen held-out evaluation once, recorded the measured
+aggregate metrics and counts, and updated the technical report. AI did not use
+the results to retune the checkpoint or display threshold. George's own review,
+demo rehearsal, and independent modification are still pending.

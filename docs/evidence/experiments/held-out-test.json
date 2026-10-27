@@ -1,0 +1,33 @@
+{
+  "split": "test",
+  "metrics": {
+    "map": 0.665894091129303,
+    "map_50": 0.9442250728607178,
+    "map_75": 0.7876547574996948,
+    "mar_100": 0.7103448510169983
+  },
+  "counts": {
+    "tp": 78,
+    "fp": 6,
+    "fn": 9
+  },
+  "precision_at_threshold": 0.9285714285714286,
+  "recall_at_threshold": 0.896551724137931,
+  "confidence_threshold_for_counts": 0.5,
+  "matching_iou_for_counts": 0.5,
+  "elapsed_seconds": 27.20629750005901,
+  "freeze_sha256": "588fba4a5710864b4e183aca5d407cea3753494ac7e47c9d0debb9ff64cc83b8",
+  "checkpoint_sha256": "4c2f1e05ca76cb06294e4f37e2b9bc6ae504bcb02da965b411603d4b9ea44c90",
+  "evaluation_settings": {
+    "split": "test",
+    "score_floor": 0.001,
+    "detections_per_image": 300,
+    "confidence_threshold_for_counts": 0.5,
+    "iou_threshold_for_counts": 0.5,
+    "map_iou_range": "0.50:0.95",
+    "threads": 4
+  },
+  "image_count": 34,
+  "freeze_commit": "da03dcf",
+  "note": "Frozen selected checkpoint only; no model or threshold selection from test results."
+}

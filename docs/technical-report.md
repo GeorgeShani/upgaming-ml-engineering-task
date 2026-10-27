@@ -1,21 +1,22 @@
-# Technical report (in progress)
+# Technical report
 
 ## Current status
 
 The dataset audit and split, pretrained E0 baseline, fine-tuning experiments A/B,
-and a resolution optimization attempt are complete. The final application and
-held-out test remain pending.
+and a resolution optimization attempt are complete. The local application and
+the frozen held-out evaluation are also complete. Personal verification and an
+independent modification remain to be completed.
 Single-image predictions are smoke checks, not evidence of model accuracy.
 
 ## Problem and intended application
 
 Identify pedestrians in a photograph and show boxes, scores, and a count.
-The final interface will be a local Streamlit application. Video tracking and
+The interface is a local Streamlit application. Video tracking and
 unique-person counting across images are outside the scope.
 
 ## Decisions and alternatives
 
-- Penn-Fudan is planned because it is small enough for inspection and CPU-first
+- Penn-Fudan was chosen because it is small enough for inspection and CPU-first
   experiments. Its small size and absence of person-free images limit evaluation.
 - A pretrained MobileNet-backed Faster R-CNN avoids learning visual features
   from a tiny dataset. A heavier ResNet model costs more computation; a network
@@ -94,16 +95,50 @@ the i5-1335U laptop. The reduced setting was about 18.9% faster at the median,
 but its 0.0561 absolute mAP loss exceeded the 0.02 limit; retain 320/640.
 The weights file size does not change. The benchmark is a single local run.
 
-The held-out test and final application remain pending.
+### Held-out test
+
+After selecting experiment B and the 320/640 resize on validation data, we
+committed a frozen evaluation contract and ran the held-out test once. The test
+contains 34 images and 87 annotated people. The first preflight failed before
+test inference because checkpoint metadata was confused with the selection;
+the check was corrected and a revised contract committed before evaluation.
+
+| Metric | Held-out result |
+| --- | ---: |
+| mAP at IoU 0.50:0.95 | 0.6659 |
+| AP50 | 0.9442 |
+| AP75 | 0.7877 |
+| Precision at confidence 0.5 and IoU 0.5 | 0.9286 |
+| Recall at confidence 0.5 and IoU 0.5 | 0.8966 |
+| Matched / unmatched predictions / missed annotations | 78 / 6 / 9 |
+
+B's validation mAP was 0.6752, compared with 0.6659 on this test split. Both
+are small samples from the same dataset, and the grouping and annotations are
+imperfect; these numbers do not establish performance in other settings. In
+particular, an unmatched prediction can be a real but unannotated pedestrian.
+The test results were not used to change the model or threshold. Numeric results
+and the freeze reference are in `docs/evidence/experiments/held-out-test.json`.
+
+The Streamlit app uses the selected checkpoint and shared inference code. On
+three unlabeled TorchVision images outside Penn-Fudan, it detected one person
+in each of two images and incorrectly detected a person in a dog image with
+confidence 0.7585. These are qualitative checks, not a benchmark. The dog error
+illustrates a limitation that the dataset's person-containing images cannot
+adequately measure. Details are in `docs/evidence/experiments/qualitative-checks.json`.
 
 ## Known limitations and next improvements
 
-The project-trained checkpoint exists locally but is not yet published; it does
-not include optimizer state for exact training resumption. The validation set is
-small, annotations are incomplete in some scenes, and the
-dataset lacks person-free images. Next: build the app, freeze decisions, and
-evaluate the held-out test. See the journal for evidence
-and the implementation plan for the acceptance criteria.
+The selected checkpoint exists locally but is not yet published; its SHA-256 is
+`4c2f1e05ca76cb06294e4f37e2b9bc6ae504bcb02da965b411603d4b9ea44c90`.
+The README gives retraining and application instructions, but a newly trained
+checkpoint may differ and cannot reproduce this exact evaluation without the
+original file. The checkpoint does not include optimizer state for exact training
+resumption. The dataset is small, some annotations are incomplete, and related
+scenes may cross splits despite the grouping audit. Future work should evaluate
+on independent, more diverse data including person-free scenes, improve grouping
+and annotations, and investigate false alarms and speed without tuning on this
+already-observed test set. Personal verification and a small independent code
+change are still pending.
 
 ## Primary references
 

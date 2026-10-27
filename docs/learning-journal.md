@@ -581,8 +581,7 @@ bytes remain exact hashes. A test confirms real changes are rejected.
 The frozen contract is committed before the test run. The evaluation command
 verifies it, uses only the selected B checkpoint and its fixed resize, and
 refuses to overwrite an existing result. It reports mAP over scores plus the
-separate 0.5 confidence/IoU counts. The held-out results and interpretation
-will be added after the actual run, without retuning against them.
+separate 0.5 confidence/IoU counts.
 
 The first preflight attempt stopped before loading any test images: AI treated
 the selection returned by `load_selected_model` as checkpoint metadata, causing
@@ -590,3 +589,37 @@ a `KeyError: config`. No test metrics were produced. The corrected preflight
 reads the checkpoint metadata explicitly and has a regression test. The first
 freeze remains in Git; a revised freeze records the corrected code before the
 test evaluation.
+
+### Held-out result and interpretation
+
+The corrected frozen evaluation ran once on 34 test images containing 87
+annotated people. It measured mAP 0.50:0.95 **0.6659**, AP50 **0.9442**, and
+AP75 **0.7877**. At confidence 0.5 and IoU 0.5 there were 78 matched
+predictions, 6 unmatched predictions, and 9 missed annotations. Precision was
+78 / (78 + 6) = **0.9286** and recall was 78 / (78 + 9) = **0.8966**.
+Unmatched predictions are not necessarily genuine mistakes when an image has
+unannotated people. The full numeric summary is in
+`docs/evidence/experiments/held-out-test.json`.
+
+The validation mAP for the selected model was 0.6752; the test mAP is 0.6659.
+This small difference on one small, imperfect split does not establish how well
+the model generalizes to new settings. The test is now observed: further model
+or threshold decisions require fresh independent evaluation data. The dog
+false positive above is another reason not to treat the test result as a broad
+guarantee.
+
+AI verification: the complete automated suite passed 43 tests; a fresh locked
+environment passed eight app-focused tests and loaded the checkpoint. Browser
+checks and the separate qualitative examples are described above. The recorded
+test evaluation did not drive a model or threshold change.
+
+### George's verification (pending)
+
+- [ ] Launch the app using the README, try a photograph, and record what happens.
+- [ ] Explain how the slider changes the displayed count without changing the model.
+- [ ] Explain why precision and recall have different denominators and why the
+  observed test set should not be used to pick another threshold.
+- [ ] Explain how a dog can receive a 0.7585 person score despite a high AP50.
+- [ ] Make and document one small independent code change, then rehearse the demo.
+
+These are exercises for George; the AI's checks above are not personal verification.

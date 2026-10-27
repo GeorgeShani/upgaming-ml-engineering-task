@@ -1,0 +1,37 @@
+{
+  "checkpoint_sha256": "4c2f1e05ca76cb06294e4f37e2b9bc6ae504bcb02da965b411603d4b9ea44c90",
+  "confidence_threshold": 0.5,
+  "note": "Three visual examples, not an annotated benchmark.",
+  "examples": [
+    {
+      "image": "person1.jpg",
+      "source": "https://raw.githubusercontent.com/pytorch/vision/v0.24.1/gallery/assets/person1.jpg",
+      "image_sha256": "a5fff88c6b4a378657cd763c788053ca084f093d9a67d05c93172536881d4de5",
+      "count": 1,
+      "scores": [
+        0.9732133746147156
+      ],
+      "observation": "A person is visible and detected."
+    },
+    {
+      "image": "dog1.jpg",
+      "source": "https://raw.githubusercontent.com/pytorch/vision/v0.24.1/gallery/assets/dog1.jpg",
+      "image_sha256": "828986ba0cdd909e3f6029d357938efba67d236350f724224b2e45cf0af0841f",
+      "count": 1,
+      "scores": [
+        0.7585011720657349
+      ],
+      "observation": "The dog is incorrectly labeled person."
+    },
+    {
+      "image": "astronaut.jpg",
+      "source": "https://raw.githubusercontent.com/pytorch/vision/v0.24.1/gallery/assets/astronaut.jpg",
+      "image_sha256": "874dba0332a5a9a6a9268e732745f57c7ba21bc733867463daaae4a766f0a03f",
+      "count": 1,
+      "scores": [
+        0.8831735253334045
+      ],
+      "observation": "A person is visible and detected."
+    }
+  ]
+}
