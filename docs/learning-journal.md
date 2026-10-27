@@ -583,3 +583,10 @@ verifies it, uses only the selected B checkpoint and its fixed resize, and
 refuses to overwrite an existing result. It reports mAP over scores plus the
 separate 0.5 confidence/IoU counts. The held-out results and interpretation
 will be added after the actual run, without retuning against them.
+
+The first preflight attempt stopped before loading any test images: AI treated
+the selection returned by `load_selected_model` as checkpoint metadata, causing
+a `KeyError: config`. No test metrics were produced. The corrected preflight
+reads the checkpoint metadata explicitly and has a regression test. The first
+freeze remains in Git; a revised freeze records the corrected code before the
+test evaluation.

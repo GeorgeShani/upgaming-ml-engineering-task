@@ -74,3 +74,6 @@ automated tests; and verified setup in a new local virtual environment. AI also
 inspected three qualitative images outside Penn-Fudan: a dog image produced a
 false person detection. The model was not changed in response. George's own
 demo, review, explanation, and independent code change remain pending.
+AI's first held-out preflight failed before any test images or metrics were
+processed because selection and checkpoint metadata were confused. AI fixed the
+check, added a regression test, and recorded a revised freeze before the run.

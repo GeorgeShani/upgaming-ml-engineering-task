@@ -100,6 +100,16 @@ def verify_contract(contract, root, dataset_root):
     return actual
 
 
+def verify_checkpoint_manifest(checkpoint, split_manifest):
+    """Check the checkpoint's training split against the selected manifest."""
+    import torch
+
+    payload = torch.load(checkpoint, map_location="cpu", weights_only=True)
+    expected = payload["metadata"]["config"]["manifest_sha256"]
+    if not matches_manifest_hash(split_manifest, expected):
+        raise ValueError("Checkpoint was trained with a different split manifest")
+
+
 def write_new_json(path, content):
     path = Path(path)
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -130,13 +140,10 @@ def main():
     contract = json.loads(args.freeze.read_text(encoding="utf-8"))
     verify_contract(contract, PROJECT_ROOT, args.dataset_root)
     torch.set_num_threads(contract["evaluation"]["threads"])
-    model, metadata = load_selected_model(
-        PROJECT_ROOT / "manifests" / "selected-model.json", PROJECT_ROOT
-    )
-    if not matches_manifest_hash(
-        PROJECT_ROOT / "manifests" / "splits.json", metadata["config"]["manifest_sha256"]
-    ):
-        raise ValueError("Checkpoint was trained with a different split manifest")
+    selection_path = PROJECT_ROOT / "manifests" / "selected-model.json"
+    model, _ = load_selected_model(PROJECT_ROOT / "manifests" / "selected-model.json", PROJECT_ROOT)
+    _, checkpoint = read_selection(selection_path, PROJECT_ROOT)
+    verify_checkpoint_manifest(checkpoint, PROJECT_ROOT / "manifests" / "splits.json")
     if (
         model.roi_heads.score_thresh != contract["evaluation"]["score_floor"]
         or model.roi_heads.detections_per_img != contract["evaluation"]["detections_per_image"]

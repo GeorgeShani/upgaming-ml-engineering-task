@@ -160,13 +160,13 @@ treated as ground truth.
 
 ## Frozen held-out evaluation
 
-`manifests/final-evaluation.json` records the choices frozen before the test run,
+`manifests/final-evaluation-v2.json` records the choices frozen before the test run,
 including text-normalized source hashes, checkpoint checksum, and held-out file
 fingerprint. To reproduce the same evaluation you need the original selected
 checkpoint and the unchanged dataset:
 
 ```powershell
-uv run --locked python -m pedestrian.final_evaluate run --dataset-root data/PennFudanPed --freeze manifests/final-evaluation.json --output runs/final-test-recheck/results.json
+uv run --locked python -m pedestrian.final_evaluate run --dataset-root data/PennFudanPed --freeze manifests/final-evaluation-v2.json --output runs/final-test-recheck/results.json
 ```
 
 Use a new output path for a recheck; the command does not overwrite existing

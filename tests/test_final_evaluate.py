@@ -2,8 +2,9 @@ import hashlib
 import json
 
 import pytest
+import torch
 
-from pedestrian.final_evaluate import build_contract, verify_contract
+from pedestrian.final_evaluate import build_contract, verify_checkpoint_manifest, verify_contract
 
 
 def test_frozen_contract_detects_changed_split_or_checkpoint(tmp_path, monkeypatch):
@@ -53,3 +54,15 @@ def test_frozen_contract_detects_changed_split_or_checkpoint(tmp_path, monkeypat
     (dataset / "PedMasks" / "c_mask.png").write_bytes(b"different mask")
     with pytest.raises(ValueError, match="held-out"):
         verify_contract(contract, tmp_path, dataset)
+
+
+def test_checkpoint_manifest_preflight_reads_checkpoint_metadata(tmp_path):
+    split = tmp_path / "splits.json"
+    split.write_bytes(b'{"splits": {}}\n')
+    recorded_hash = hashlib.sha256(split.read_bytes().replace(b"\n", b"\r\n")).hexdigest()
+    checkpoint = tmp_path / "checkpoint.pt"
+    torch.save({"metadata": {"config": {"manifest_sha256": recorded_hash}}}, checkpoint)
+    verify_checkpoint_manifest(checkpoint, split)
+    split.write_bytes(b'{"changed": true}\n')
+    with pytest.raises(ValueError, match="different split"):
+        verify_checkpoint_manifest(checkpoint, split)
