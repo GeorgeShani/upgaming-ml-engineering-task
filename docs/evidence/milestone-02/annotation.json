@@ -1,0 +1,32 @@
+{
+  "image_id": "FudanPed00001",
+  "image_size_wh": [
+    559,
+    536
+  ],
+  "mask_mode": "L",
+  "background_id": 0,
+  "instance_ids": [
+    1,
+    2
+  ],
+  "boxes_xyxy_exclusive": [
+    [
+      159.0,
+      181.0,
+      302.0,
+      431.0
+    ],
+    [
+      419.0,
+      170.0,
+      535.0,
+      486.0
+    ]
+  ],
+  "class_labels": [
+    1,
+    1
+  ],
+  "note": "Ground-truth boxes derived from instance masks; not model predictions."
+}

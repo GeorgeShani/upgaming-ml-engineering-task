@@ -9,6 +9,7 @@ dependencies = [
     "torchmetrics==1.8.2",
     "pycocotools==2.0.10",
     "pillow==12.0.0",
+    "numpy==2.5.4",
 ]
 
 [dependency-groups]

@@ -2,8 +2,9 @@
 
 ## Current status
 
-Milestone 1: environment and pretrained inference. No fine-tuning, Penn-Fudan
-validation/test evaluation, or optimization measurements have been performed.
+Milestone 1: environment and pretrained inference. Milestone 2 has begun with
+inspection of one Penn-Fudan image and its instance mask. No fine-tuning,
+Penn-Fudan validation/test evaluation, or optimization measurements have been performed.
 Single-image predictions are smoke checks, not evidence of model accuracy.
 
 ## Problem and intended application
@@ -43,7 +44,7 @@ E0, A, B, optimization, and held-out test results remain pending.
 ## Known limitations and next improvements
 
 There is no project-trained model yet. No accuracy claim is supported.
-Next: inspect masks and boxes, audit duplicates, save split manifests, and run
+Next: audit pairing and duplicates, save split manifests, and run
 the validation baseline before training. See the journal for actual evidence
 and the implementation plan for the acceptance criteria.
 

@@ -26,3 +26,11 @@ have reviewed or authored code merely because this file exists.
 
 No training outcomes, benchmark numbers, user exercises, or elapsed work hours
 are invented. Update this record at each later milestone.
+
+## Milestone 2, first slice
+
+AI drafted the mask-to-box function, focused tests, one-image inspection command,
+and journal explanation. AI downloaded the dataset, ran the checks, and visually
+inspected the two boxes and the colorized mask for `FudanPed00001`. George's own
+inspection and explanation remain pending. Dataset images and visualizations
+stay local, consistent with the dataset readme's reposting restrictions.

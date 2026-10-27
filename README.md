@@ -4,9 +4,9 @@ A CPU-first computer vision project implemented one milestone at a time.
 The full assignment includes data preparation, fine-tuning, evaluation, an
 optimization attempt, and a local Streamlit demonstration.
 
-**Current scope: milestone 1, pretrained inference.** No project-specific
-training or dataset evaluation has been performed. Your independent review
-comes before milestone 2. See [the schedule](docs/implementation-plan.md).
+**Current scope: pretrained inference and the first data-inspection slice.**
+No project-specific training or dataset evaluation has been performed. See
+[the schedule](docs/implementation-plan.md) and the learning journal.
 
 ## Set up on Windows
 
@@ -57,6 +57,25 @@ for each comparison.
 - [Technical report, currently in progress](docs/technical-report.md)
 - [AI assistance and verification record](docs/ai-usage.md)
 - [Actual milestone 1 output and verification evidence](docs/evidence/milestone-01/README.md)
+
+## Milestone 2: inspect one image and its annotation
+
+Download the [Penn-Fudan dataset](https://www.cis.upenn.edu/~jshi/ped_html/)
+and extract it into `data/`, so that `data/PennFudanPed/PNGImages` and
+`data/PennFudanPed/PedMasks` exist. The downloaded archive and extracted dataset
+are ignored by Git; the dataset's readme restricts reposting its materials.
+
+```powershell
+uv run --locked python -m pedestrian.inspect_annotation --dataset-root data/PennFudanPed --image-id FudanPed00001 --output runs/milestone2-example
+Invoke-Item .\runs\milestone2-example\ground-truth-boxes.png
+Invoke-Item .\runs\milestone2-example\instance-mask.png
+Get-Content .\runs\milestone2-example\annotation.json
+```
+
+The first image shows boxes derived from the annotations; the second uses
+artificial colors to make the original mask's instance IDs visible. Generated
+images stay local in `runs/`. No model is run by this command. See the learning
+journal for a worked example and the next verification exercise.
 
 `pedestrian/model.py` loads the detector; `inference.py` prepares images and
 filters predictions; `predict.py` handles CLI input and saved outputs.

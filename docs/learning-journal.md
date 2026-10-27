@@ -122,6 +122,82 @@ Write here after doing the exercise:
 
 ### Next milestone
 
-After George's exercise, implement data inspection and box extraction. First
-follow a single image/mask pair and draw its ground-truth boxes; then create
+Follow a single image/mask pair and draw its ground-truth boxes; then create
 the split manifests. Avoid starting training until the annotations are verified.
+
+## Milestone 2, first slice: one image and mask
+
+Date: 2026-10-27 (Asia/Tbilisi). AI implementation and verification complete;
+George's independent inspection and explanation are pending. The dataset split
+and full dataset audit are still to come.
+
+### What changed and why
+
+`pedestrian/annotations.py` extracts person boxes from an instance mask.
+`pedestrian/inspect_annotation.py` displays one real image, a colorized mask,
+and the boxes derived from that mask. This small slice connects model predictions
+to the ground-truth annotations against which predictions will later be measured.
+
+The dataset contains 170 image files and 170 mask files. This is a count, not
+yet a complete pairing or duplicate audit. The archive came from the original
+Penn-Fudan source and has SHA256
+`9095a9613c95586f1c7f2a327d454833d16e0f5e17e5f83d35027ffd315b48e2`.
+Its readme says copyright is retained and reposting generally requires rights
+holder permission. Dataset files and derived visualizations remain local in the
+gitignored `data/` and `runs/` directories.
+
+### How mask values become boxes
+
+A mask has one integer at each pixel. Zero means background; each nonzero value
+identifies a separate annotated pedestrian in that image. Instance IDs are not
+the model's class labels, and they do not identify the same individual across
+different images. Every person has the same class label, 1.
+
+For example, consider a mask 5 pixels wide and 3 pixels high:
+
+```text
+  x → 0  1  2  3  4
+y 0   0  0  0  0  0
+  1   0  2  2  0  7
+  2   0  2  0  0  7
+```
+
+ID 2 occupies columns 1-2 and rows 1-2, so its box is `[1, 1, 3, 3]`.
+ID 7 occupies column 4 and rows 1-2, so its box is `[4, 1, 5, 3]`.
+Boxes are `[left, top, right, bottom]` with exclusive right and bottom edges.
+This makes width `right - left` and makes a one-pixel-wide box have width 1.
+
+The implementation builds one True/False mask per instance ID and calls
+TorchVision `masks_to_boxes`. That operation returns the largest occupied pixel
+index, so we add 1 to the right and bottom coordinates. An alternative is to
+compute min/max pixel indices directly with NumPy; the library operation keeps
+the tensor implementation compact but still requires understanding this edge.
+
+The colorized output is for inspection only: its red/blue colors are assigned
+for visibility and do not change the original mask or class labels.
+
+### AI-run evidence
+
+On `FudanPed00001`, the image is 559 by 536 pixels, the mask is single-channel,
+and nonzero IDs are `[1, 2]`. Derived boxes are `[159, 181, 302, 431]` and
+`[419, 170, 535, 486]`; both class labels are 1. I inspected the local box and
+color-mask images. They surround the two annotated pedestrians. The numeric
+output is recorded in `docs/evidence/milestone-02/annotation.json`.
+
+Three focused annotation tests and the existing 12 tests passed. Ruff lint and
+format checks passed. The tests cover nonconsecutive instance IDs, background,
+one-pixel regions, box coordinates, and target tensor types.
+
+### George's verification (pending)
+
+- [ ] Run the inspection command from the README and open both output images.
+- [ ] Explain why instance IDs 1 and 2 both receive person class label 1.
+- [ ] In the toy mask above, calculate ID 7's width and height from its box.
+- [ ] Choose another image ID from the dataset, inspect its outputs, and record
+  what you saw without publishing the dataset's images.
+
+Commands I ran: **pending**. My explanation: **pending**. My observations and
+questions: **pending**.
+
+Next: audit pairing and possible duplicates, then make fixed train/validation/
+test manifests before evaluating or training the model.
