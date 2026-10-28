@@ -43,3 +43,5 @@ perform it; do not attribute an AI-generated edit to yourself.
 
 The detailed results, limitations, and actual AI contributions are in
 `technical-report.md`, `learning-journal.md`, and `ai-usage.md`.
+AI-prepared practice answers are in `demo-rehearsal.md`; rehearse them in your
+own words rather than presenting their existence as completed personal practice.

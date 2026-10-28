@@ -136,6 +136,9 @@ Get-FileHash -LiteralPath 'runs/experiment-b/best.pt' -Algorithm SHA256
 ```
 
 The expected hash is `4c2f1e05ca76cb06294e4f37e2b9bc6ae504bcb02da965b411603d4b9ea44c90`.
+To compare the file with the selected-model manifest automatically, run
+`uv run --locked python -m pedestrian.verify_checkpoint`. It exits with an
+error if the checkpoint is missing or its checksum differs.
 The release provides the weights; its tag points to the remote `main` as it was
 when the release was created. The full app and evaluation require the later
 project commits.

@@ -623,3 +623,22 @@ test evaluation did not drive a model or threshold change.
 - [ ] Make and document one small independent code change, then rehearse the demo.
 
 These are exercises for George; the AI's checks above are not personal verification.
+
+## Additional AI demo check and checksum helper
+
+At George's request, AI started the local Streamlit app and selected the
+`person1.jpg` example. At confidence 0.50 the app showed one person with score
+0.97; at 1.00 it showed zero and the empty-result message. This was an AI-run
+check, not a claim that George used the app personally.
+
+AI added `pedestrian/verify_checkpoint.py`, a small command that reads the
+selection and compares the checkpoint's SHA-256 with its manifest. This gives
+a clear success or failure before loading the model. An alternative is the
+existing PowerShell `Get-FileHash` command, which requires manual comparison.
+The new command was run against the selected checkpoint successfully, and
+against a temporary manifest with an incorrect hash, where it returned exit
+code 1. Ruff passed. The frozen app and evaluation files were not changed.
+
+AI also prepared `docs/demo-rehearsal.md` to support a spoken explanation. It
+does not establish that George has rehearsed it or made an independent change;
+those personal activities remain pending.

@@ -83,6 +83,11 @@ aggregate metrics and counts, and updated the technical report. AI did not use
 the results to retune the checkpoint or display threshold. George's own review,
 demo rehearsal, and independent modification are still pending.
 
+At George's later request, AI ran the demo again, checked the example and
+slider, authored and tested a checkpoint-verification helper, and drafted a
+rehearsal guide. These are AI actions; they are not George's own independent
+change, personal demo run, or spoken rehearsal.
+
 AI uploaded the evaluated checkpoint to a public GitHub release and checked
 GitHub's reported SHA-256 against the recorded checkpoint hash. AI prepared a
 submission walkthrough and an exercise for George to perform independently;
