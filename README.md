@@ -7,6 +7,31 @@ optimization attempt, and a local Streamlit demonstration.
 **Current scope: a local Streamlit demo and a frozen final evaluation.** See
 [the schedule](docs/implementation-plan.md) and the learning journal.
 
+## Evaluator quick start (Windows PowerShell)
+
+Clone the current `main` branch, install [uv](https://docs.astral.sh/uv/getting-started/installation/),
+and run these commands from the repository root:
+
+```powershell
+uv sync --locked
+New-Item -ItemType Directory -Force -Path 'runs/experiment-b' | Out-Null
+Invoke-WebRequest -Uri 'https://github.com/GeorgeShani/upgaming-ml-engineering-task/releases/download/evaluated-checkpoint-b/best.pt' -OutFile 'runs/experiment-b/best.pt'
+uv run --locked python -m pedestrian.verify_checkpoint
+uv run --locked streamlit run app.py
+```
+
+Open the local URL printed by Streamlit and upload a JPEG or PNG. The release
+tag is for the weights; use current `main` for source code. The selected model
+can load without downloading pretrained weights. The initial environment setup
+and checkpoint download require internet. For training, data preparation,
+experiments, dependencies and detailed results, see the sections below and the
+[submission requirements map](docs/submission-requirements.md).
+
+The main files are `app.py` (demo), `pedestrian/data.py` and
+`pedestrian/annotations.py` (data), `pedestrian/train.py` (training),
+`pedestrian/evaluate.py` (metrics), `pedestrian/optimize.py` (benchmark),
+`pedestrian/inference.py` (shared predictions), and `tests/` (checks).
+
 ## Set up on Windows
 
 Run commands from this repository in PowerShell. Install

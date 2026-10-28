@@ -128,6 +128,19 @@ adequately measure. Details are in `docs/evidence/experiments/qualitative-checks
 
 ## Known limitations and next improvements
 
+The solution's strengths are a working CPU-first demo, an explicit train/
+validation/test split, recorded controlled experiments, and a reusable trained
+checkpoint. Freezing the backbone kept training manageable on the available
+laptop, although it also limited how much the learned features could adapt.
+
+Practical difficulties included CPU training cost, scene similarity and
+incomplete masks, and the first evaluation preflight's metadata error. We used
+a smaller pretrained detector and a frozen backbone, reviewed and grouped
+related scenes while acknowledging that the review was incomplete, and fixed
+the metadata check with a regression test before the held-out run. The lower
+resolution optimization was rejected because its measured accuracy loss
+exceeded the predeclared limit.
+
 The selected checkpoint is available in the [checkpoint release](https://github.com/GeorgeShani/upgaming-ml-engineering-task/releases/tag/evaluated-checkpoint-b);
 its SHA-256 is `4c2f1e05ca76cb06294e4f37e2b9bc6ae504bcb02da965b411603d4b9ea44c90`.
 The README gives retraining and application instructions, but a newly trained
