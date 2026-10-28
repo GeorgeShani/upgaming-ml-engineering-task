@@ -53,7 +53,8 @@ for each comparison.
 
 - [Learning journal and your first exercise](docs/learning-journal.md)
 - [Two-day implementation plan](docs/implementation-plan.md)
-- [Technical report, currently in progress](docs/technical-report.md)
+- [Technical report](docs/technical-report.md)
+- [Submission walkthrough and independent exercise](docs/submission-checklist.md)
 - [AI assistance and verification record](docs/ai-usage.md)
 - [Actual milestone 1 output and verification evidence](docs/evidence/milestone-01/README.md)
 
@@ -127,8 +128,19 @@ The recorded run selected experiment B at 320/640; see
 uv run --locked python -m pedestrian.predict --image data/person1.jpg --checkpoint runs/experiment-b/best.pt --min-size 320 --max-size 640 --output runs/selected-example
 ```
 
-The original checkpoint is local and ignored by Git. A retrained checkpoint may
-have a different checksum. After retraining, the command above writes a new
+The original checkpoint is available from the [evaluated checkpoint release](https://github.com/GeorgeShani/upgaming-ml-engineering-task/releases/tag/evaluated-checkpoint-b).
+Download `best.pt` into `runs/experiment-b/` and verify its SHA-256 before use:
+
+```powershell
+Get-FileHash -LiteralPath 'runs/experiment-b/best.pt' -Algorithm SHA256
+```
+
+The expected hash is `4c2f1e05ca76cb06294e4f37e2b9bc6ae504bcb02da965b411603d4b9ea44c90`.
+The release provides the weights; its tag points to the remote `main` as it was
+when the release was created. The full app and evaluation require the later
+project commits.
+
+A retrained checkpoint may have a different checksum. After retraining, the command above writes a new
 selection file. Point the application at it before launching:
 
 ```powershell

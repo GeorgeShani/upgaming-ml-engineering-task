@@ -128,8 +128,8 @@ adequately measure. Details are in `docs/evidence/experiments/qualitative-checks
 
 ## Known limitations and next improvements
 
-The selected checkpoint exists locally but is not yet published; its SHA-256 is
-`4c2f1e05ca76cb06294e4f37e2b9bc6ae504bcb02da965b411603d4b9ea44c90`.
+The selected checkpoint is available in the [checkpoint release](https://github.com/GeorgeShani/upgaming-ml-engineering-task/releases/tag/evaluated-checkpoint-b);
+its SHA-256 is `4c2f1e05ca76cb06294e4f37e2b9bc6ae504bcb02da965b411603d4b9ea44c90`.
 The README gives retraining and application instructions, but a newly trained
 checkpoint may differ and cannot reproduce this exact evaluation without the
 original file. The checkpoint does not include optimizer state for exact training

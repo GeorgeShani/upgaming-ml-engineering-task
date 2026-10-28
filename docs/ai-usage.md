@@ -82,3 +82,8 @@ AI ran the corrected frozen held-out evaluation once, recorded the measured
 aggregate metrics and counts, and updated the technical report. AI did not use
 the results to retune the checkpoint or display threshold. George's own review,
 demo rehearsal, and independent modification are still pending.
+
+AI uploaded the evaluated checkpoint to a public GitHub release and checked
+GitHub's reported SHA-256 against the recorded checkpoint hash. AI prepared a
+submission walkthrough and an exercise for George to perform independently;
+the walkthrough itself does not count as George's verification or code change.
