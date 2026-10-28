@@ -129,9 +129,12 @@ uv run --locked python -m pedestrian.predict --image data/person1.jpg --checkpoi
 ```
 
 The original checkpoint is available from the [evaluated checkpoint release](https://github.com/GeorgeShani/upgaming-ml-engineering-task/releases/tag/evaluated-checkpoint-b).
-Download `best.pt` into `runs/experiment-b/` and verify its SHA-256 before use:
+From a fresh checkout of `main`, download `best.pt` to the expected location
+and verify its SHA-256 before use:
 
 ```powershell
+New-Item -ItemType Directory -Force -Path 'runs/experiment-b' | Out-Null
+Invoke-WebRequest -Uri 'https://github.com/GeorgeShani/upgaming-ml-engineering-task/releases/download/evaluated-checkpoint-b/best.pt' -OutFile 'runs/experiment-b/best.pt'
 Get-FileHash -LiteralPath 'runs/experiment-b/best.pt' -Algorithm SHA256
 ```
 
@@ -139,9 +142,8 @@ The expected hash is `4c2f1e05ca76cb06294e4f37e2b9bc6ae504bcb02da965b411603d4b9e
 To compare the file with the selected-model manifest automatically, run
 `uv run --locked python -m pedestrian.verify_checkpoint`. It exits with an
 error if the checkpoint is missing or its checksum differs.
-The release provides the weights; its tag points to the remote `main` as it was
-when the release was created. The full app and evaluation require the later
-project commits.
+The release provides the weights; its source-code tag points to an older commit.
+Use the current `main` branch for the full app and evaluation.
 
 A retrained checkpoint may have a different checksum. After retraining, the command above writes a new
 selection file. Point the application at it before launching:
